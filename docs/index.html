@@ -1,0 +1,2414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beegii Chuuki - Japanese Language Teacher</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Learn Japanese with Beegii - JLPT N1 certified teacher from Mongolia. Online courses N5-N1, personalized lessons, and cultural insights.">
+    <meta name="keywords" content="Japanese Language, JLPT, Japanese Teacher, Mongolia, Online Japanese Course, N5, N1, Beegii Chuuki">
+    <meta name="author" content="Binderiya Khuchitbaatar">
+    <link rel="canonical" href="https://yourwebsite.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Beegii Chuuki - Japanese Language Teacher">
+    <meta property="og:description" content="Learn Japanese with certified JLPT N1 teacher. Online courses for all levels N5-N1.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://yourwebsite.com/beegii.jpg">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sakura-pink: #FFB7C5;
+            --lavender: #E6B8FF;
+            --sky-blue: #B8E6FF;
+            --gold: #FFD700;
+            --cream: #FFF8F0;
+            --soft-purple: #D8B5FF;
+            --mint: #B5FFD9;
+            --peach: #FFCDB2;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FFB7C5 0%, #E6B8FF 50%, #B8E6FF 100%);
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Sakura Animation */
+        .sakura-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .sakura {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: radial-gradient(circle, var(--sakura-pink), #FF69B4);
+            border-radius: 50% 0 50% 0;
+            opacity: 0.7;
+            animation: fall linear infinite;
+            transform-origin: center;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Sticky Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 28px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #FF69B4, #9D50BB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--sakura-pink), var(--lavender));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 100px 60px 60px;
+            z-index: 2;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1400px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 72px;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #FF1493, #9D50BB, #4169E1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+            padding-bottom: 0.05em;
+        }
+
+        .hero-text .subtitle {
+            font-size: 24px;
+            color: #555;
+            margin-bottom: 16px;
+            font-family: 'Noto Serif JP', serif;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .hero-text .description {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--sakura-pink), var(--lavender));
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #FF1493;
+            border: 2px solid var(--sakura-pink);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease-out 0.3s backwards;
+        }
+
+        .hero-image-wrapper {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 50% 50% 0 0;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(255, 105, 180, 0.3);
+            background: linear-gradient(135deg, rgba(255, 183, 197, 0.3), rgba(230, 184, 255, 0.3));
+        }
+
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--sakura-pink), var(--lavender), var(--sky-blue));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 60px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--sakura-pink);
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.2);
+        }
+
+        .stat-number {
+            font-size: 56px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FF1493, #9D50BB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Courses Section */
+        .courses {
+            min-height: 100vh;
+            padding: 100px 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #FF1493, #9D50BB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 60px;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .courses-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .course-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--sakura-pink), var(--lavender), var(--sky-blue));
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--sakura-pink);
+            box-shadow: 0 25px 60px rgba(255, 105, 180, 0.25);
+        }
+
+        .course-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .course-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #333;
+        }
+
+        .course-desc {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .course-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .course-features li {
+            padding: 8px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .course-features li::before {
+            content: '✓';
+            color: #FF1493;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* About Section */
+        .about {
+            min-height: 100vh;
+            padding: 100px 60px;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #FF1493, #9D50BB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--sakura-pink), var(--lavender), var(--sky-blue));
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -48px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--sakura-pink);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--sakura-pink);
+        }
+
+        .timeline-year {
+            font-weight: 600;
+            color: #FF1493;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .timeline-content {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Social Section */
+        .social {
+            padding: 100px 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-icon {
+            color: #8aa4ff;
+            font-size: 56px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .social-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .social-handle {
+            font-size: 16px;
+            color: #888;
+        }
+
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 2000;
+        }
+
+        .chat-bubble {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sakura-pink), var(--lavender));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .chat-bubble:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 50px rgba(255, 105, 180, 0.6);
+        }
+
+        .chat-box {
+            position: absolute;
+            bottom: 90px;
+            right: 0;
+            width: 420px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(30px);
+            border-radius: 25px;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 2px solid rgba(255, 183, 197, 0.3);
+        }
+
+        .chat-box.open {
+            display: flex;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-header {
+            padding: 25px;
+            background: linear-gradient(135deg, var(--sakura-pink), var(--lavender));
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .chat-header small {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .close-chat {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .close-chat:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: var(--sakura-pink);
+            border-radius: 3px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 14px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            line-height: 1.5;
+            animation: messageSlide 0.3s ease-out;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.bot {
+            background: linear-gradient(135deg, rgba(255, 183, 197, 0.2), rgba(230, 184, 255, 0.2));
+            align-self: flex-start;
+            border: 1px solid rgba(255, 183, 197, 0.3);
+        }
+
+        .message.user {
+            background: linear-gradient(135deg, var(--sakura-pink), var(--lavender));
+            color: white;
+            align-self: flex-end;
+        }
+
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            padding: 14px 18px;
+            background: rgba(255, 183, 197, 0.2);
+            border-radius: 20px;
+            gap: 6px;
+        }
+
+        .typing-indicator.active {
+            display: flex;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--sakura-pink);
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+
+        .quick-questions {
+            padding: 15px 25px;
+            border-top: 1px solid rgba(255, 183, 197, 0.2);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            max-height: 90px;
+            overflow-y: auto;
+        }
+
+        .quick-btn {
+            padding: 8px 14px;
+            background: rgba(255, 183, 197, 0.2);
+            border: 1px solid rgba(255, 183, 197, 0.3);
+            border-radius: 15px;
+            font-size: 12px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quick-btn:hover {
+            background: var(--sakura-pink);
+            color: white;
+        }
+
+        .chat-input-area {
+            padding: 20px 25px;
+            border-top: 1px solid rgba(255, 183, 197, 0.2);
+            display: flex;
+            gap: 12px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 18px;
+            border: 2px solid rgba(255, 183, 197, 0.3);
+            border-radius: 25px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .chat-input:focus {
+            border-color: var(--sakura-pink);
+        }
+
+        .chat-send {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--sakura-pink), var(--lavender));
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .chat-send:hover {
+            transform: scale(1.05);
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 100px 60px;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .reviews-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .review-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--sakura-pink), var(--lavender), var(--sky-blue));
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--sakura-pink);
+            box-shadow: 0 25px 60px rgba(255, 105, 180, 0.25);
+        }
+
+        .review-image-wrapper {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255, 183, 197, 0.1), rgba(230, 184, 255, 0.1));
+        }
+
+        .review-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .review-card:hover .review-image {
+            transform: scale(1.05);
+        }
+
+        .review-caption {
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .review-stars {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .review-stars .star {
+            color: #FFD700;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .reviews {
+                padding: 80px 30px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .reviews {
+                padding: 60px 20px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .review-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 2;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 8px 12px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+            color: #333;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--sakura-pink), var(--lavender));
+            color: white;
+            box-shadow: 0 2px 10px rgba(255, 105, 180, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .language-switcher {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                padding: 6px 10px;
+            }
+            
+            .lang-btn {
+                padding: 4px 8px;
+                font-size: 12px;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            header {
+                padding: 20px 30px;
+            }
+
+            .hero, .courses, .about, .social {
+                padding: 80px 30px;
+            }
+
+            .hero-content, .about-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .hero-text h1 {
+                font-size: 56px;
+            }
+
+            .section-title {
+                font-size: 42px;
+            }
+
+            .courses-grid, .social-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(30px);
+                padding: 30px;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+                border-bottom: 1px solid rgba(255, 183, 197, 0.3);
+            }
+
+            nav.open {
+                transform: translateY(0);
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .hero-text .subtitle {
+                font-size: 20px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 42px;
+            }
+
+            .chat-box {
+                width: calc(100vw - 40px);
+                right: 20px;
+            }
+
+            .chat-widget {
+                right: 20px;
+                bottom: 20px;
+            }
+
+            footer {
+                padding: 40px 30px;
+            }
+        }
+
+        /* Scroll Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sakura Animation -->
+    <div class="sakura-container" id="sakuraContainer"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="logo">Beegii Chuuki</div>
+        <nav id="nav">
+            <ul>
+                <li><a href="#home" data-translate="nav_home">Home</a></li>
+                <li><a href="#courses" data-translate="nav_courses">Courses</a></li>
+                <li><a href="#about" data-translate="nav_about">About</a></li>
+                <li><a href="#social" data-translate="nav_social">Social</a></li>
+                <li><a href="#reviews" data-translate="nav_reviews">Reviews</a></li>
+            </ul>
+        </nav>
+        <div class="language-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="mn">MN</button>
+            <button class="lang-btn" data-lang="jp">日本</button>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 data-translate="hero_title">Learn Japanese with Beegii</h1>
+                <div class="subtitle" data-translate="hero_subtitle">JLPT N1 Certified Teacher from Mongolia</div>
+                <p class="description" data-translate="hero_description">
+                    Master Japanese from N5 to N1 with personalized online lessons, cultural insights, 
+                    and proven teaching methods. Join 62+ students already learning with me!
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://forms.gle/A5rntc9shtFzUBCX6" class="btn btn-primary" target="_blank" data-translate="hero_btn_primary">Start Learning</a>
+                    <a href="#courses" class="btn btn-secondary" data-translate="hero_btn_secondary">View Courses</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <!-- Replace with actual image -->
+                    <img src="./bg2.jpg" alt="Beegii Chuuki">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-card scroll-reveal">
+                <div class="stat-number" data-target="62">0</div>
+                <div class="stat-label" data-translate="stat_students">Active Students</div>
+            </div>
+            <div class="stat-card scroll-reveal">
+                <div class="stat-number" data-target="4">0</div>
+                <div class="stat-label" data-translate="stat_teaching">Years Teaching</div>
+            </div>
+            <div class="stat-card scroll-reveal">
+                <div class="stat-number">N1</div>
+                <div class="stat-label" data-translate="stat_jlpt">JLPT Certified</div>
+            </div>
+            <div class="stat-card scroll-reveal">
+                <div class="stat-number" data-target="4">0</div>
+                <div class="stat-label" data-translate="stat_countries">Countries Studied</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+        <h2 class="section-title scroll-reveal" data-translate="courses_title">My Courses</h2>
+        <p class="section-subtitle scroll-reveal" data-translate="courses_subtitle">Choose the perfect course for your learning journey</p>
+        
+        <div class="courses-grid">
+            <!-- Course 1: 1:1 Premium -->
+            <div class="course-card scroll-reveal">
+                <div class="course-icon">👤</div>
+                <h3 class="course-title" data-translate="course1_title">1:1 Premium Class</h3>
+                <p class="course-desc" data-translate="course1_desc">Personalized lessons tailored to your goals and pace. Perfect for focused learning and rapid progress.</p>
+                <ul class="course-features">
+                    <li data-translate="course1_feature1">Customized lesson plans</li>
+                    <li data-translate="course1_feature2">Flexible scheduling</li>
+                    <li data-translate="course1_feature3">JLPT preparation (N5-N1)</li>
+                    <li data-translate="course1_feature4">Speaking & listening focus</li>
+                </ul>
+                <a href="https://forms.gle/A5rntc9shtFzUBCX6" class="btn btn-primary" target="_blank" data-translate="course1_btn">Enroll Now</a>
+            </div>
+
+            <!-- Course 2: Group Class -->
+            <div class="course-card scroll-reveal">
+                <div class="course-icon">👥</div>
+                <h3 class="course-title" data-translate="course2_title">Group Class</h3>
+                <p class="course-desc" data-translate="course2_desc">Learn with peers in an interactive environment. Great for building confidence and community.</p>
+                <ul class="course-features">
+                    <li data-translate="course2_feature1">Small group sizes</li>
+                    <li data-translate="course2_feature2">Interactive sessions</li>
+                    <li data-translate="course2_feature3">Cultural discussions</li>
+                    <li data-translate="course2_feature4">Affordable pricing</li>
+                </ul>
+                <a href="https://forms.gle/mJuo87bF44z4T5gU6" class="btn btn-primary" target="_blank" data-translate="course2_btn">Join Group</a>
+            </div>
+
+            <!-- Course 3: Mock Test -->
+            <div class="course-card scroll-reveal">
+                <div class="course-icon">📝</div>
+                <h3 class="course-title" data-translate="course3_title">Mock Test Class</h3>
+                <p class="course-desc" data-translate="course3_desc">Practice with real JLPT-style tests and get detailed feedback to boost your exam confidence.</p>
+                <ul class="course-features">
+                    <li data-translate="course3_feature1">All levels N5-N2</li>
+                    <li data-translate="course3_feature2">Detailed feedback</li>
+                    <li data-translate="course3_feature3">Exam strategies</li>
+                    <li data-translate="course3_feature4">Time management tips</li>
+                </ul>
+                <a href="#" class="btn btn-primary" onclick="openChat(); return false;" data-translate="course3_btn">Learn More</a>
+            </div>
+
+            <!-- Course 4: Kanji Class -->
+            <div class="course-card scroll-reveal">
+                <div class="course-icon">✍️</div>
+                <h3 class="course-title" data-translate="course4_title">Kanji Class</h3>
+                <p class="course-desc" data-translate="course4_desc">Master Japanese characters with systematic learning methods and memory techniques.</p>
+                <ul class="course-features">
+                    <li data-translate="course4_feature1">Structured curriculum</li>
+                    <li data-translate="course4_feature2">Memory techniques</li>
+                    <li data-translate="course4_feature3">Writing practice</li>
+                    <li data-translate="course4_feature4">Reading exercises</li>
+                </ul>
+                <a href="#" class="btn btn-primary" onclick="openChat(); return false;" data-translate="course4_btn">Learn More</a>
+            </div>
+
+            <!-- Course 5: Support in Japan -->
+            <div class="course-card scroll-reveal">
+                <div class="course-icon">🎌</div>
+                <h3 class="course-title" data-translate="course5_title">Support in Japan</h3>
+                <p class="course-desc" data-translate="course5_desc">For Mongolian students in Japan who need help with Japanese grammar and cultural adaptation.</p>
+                <ul class="course-features">
+                    <li data-translate="course5_feature1">Mongolian explanations</li>
+                    <li data-translate="course5_feature2">Weekly 30-min meetings</li>
+                    <li data-translate="course5_feature3">24/7 message support</li>
+                    <li data-translate="course5_feature4">125,000₮/month</li>
+                </ul>
+                <a href="#" class="btn btn-primary" onclick="openChat(); return false;" data-translate="course5_btn">Get Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text scroll-reveal">
+                <h2 data-translate="about_title">About Me</h2>
+                <p data-translate="about_p1">
+                    Hello! I'm Binderiya (Beegii), a passionate Japanese language teacher from Mongolia. 
+                    I passed JLPT N1 in just 1 year and 9 months, and now I help Mongolian students 
+                    achieve their Japanese learning goals.
+                </p>
+                <p data-translate="about_p2">
+                    With experience studying in 4 countries (Mongolia, Japan, USA, Italy), I bring 
+                    a unique multicultural perspective to language teaching. I graduated from 
+                    J.F. Oberlin University in Tokyo with a degree in Global Communication.
+                </p>
+                <p data-translate="about_p3">
+                    Beyond teaching, I'm a musician (Morin khuur), content creator, and founder of 
+                    the Tokitenku Foundation, which supports Mongolians in Japan. I share my journey 
+                    and lessons on my YouTube channel "Beegii Chuuki."
+                </p>
+            </div>
+
+            <div class="timeline scroll-reveal">
+                <div class="timeline-item">
+                    <div class="timeline-year" data-translate="timeline1_year">2024 - Present</div>
+                    <div class="timeline-content" data-translate="timeline1_content">Online Japanese Teacher & Content Creator</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year" data-translate="timeline2_year">2020 - 2023</div>
+                    <div class="timeline-content" data-translate="timeline2_content">J.F. Oberlin University, Tokyo - Global Communication</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year" data-translate="timeline3_year">2019</div>
+                    <div class="timeline-content" data-translate="timeline3_content">Passed JLPT N1 (1 year 9 months study)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year" data-translate="timeline4_year">2020</div>
+                    <div class="timeline-content" data-translate="timeline4_content">Founded Tokitenku Foundation</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year" data-translate="timeline5_year">2017</div>
+                    <div class="timeline-content" data-translate="timeline5_content">Graduated as Morin khuur Musician, Mongolia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section class="social" id="social">
+        <h2 class="section-title scroll-reveal" data-translate="social_title">Connect With Me</h2>
+        <p class="section-subtitle scroll-reveal" data-translate="social_subtitle">Follow my journey and learning content</p>
+        
+        <div class="social-grid">
+            <!-- YouTube - Main -->
+            <a href="https://www.youtube.com/@beegiichuuki" class="social-card scroll-reveal" target="_blank" rel="noopener">
+                <span class="social-icon" aria-hidden="true">
+                    <svg width="64" height="64" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#FFB7C5" role="img">
+                        <title>YouTube</title>
+                        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1C4.4 20.5 12 20.5 12 20.5s7.6 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8z"/>
+                        <polygon points="10,15.5 10,8.5 16.5,12" fill="currentColor"/>
+                    </svg>
+                </span>
+                <div class="social-name" data-translate="social1_name">YouTube - Main</div>
+                <div class="social-handle" data-translate="social1_handle">@beegiichuuki</div>
+            </a>
+
+            <!-- YouTube - Learning -->
+            <a href="https://www.youtube.com/@Beegiijapanese" class="social-card scroll-reveal" target="_blank" rel="noopener">
+                <span class="social-icon" aria-hidden="true">
+                    <svg width="64" height="64" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" role="img">
+                        <title>YouTube</title>
+                        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1C4.4 20.5 12 20.5 12 20.5s7.6 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8z"/>
+                        <polygon points="10,15.5 10,8.5 16.5,12" fill="#FFB7C5"/>
+                    </svg>
+                </span>
+                <div class="social-name" data-translate="social2_name">YouTube - Learning</div>
+                <div class="social-handle" data-translate="social2_handle">@Beegiijapanese</div>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/beegii.chuuki/" class="social-card scroll-reveal" target="_blank" rel="noopener">
+                <span class="social-icon" aria-hidden="true">
+                    <svg width="64" height="64" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img">
+                        <title>Instagram</title>
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="currentColor"/>
+                        <circle cx="12" cy="12" r="4.5" fill="none" stroke="#FFB7C5" stroke-width="2"/>
+                        <circle cx="18" cy="6" r="1.3" fill="none" stroke="#FFB7C5"/>
+                    </svg>
+                </span>
+                <div class="social-name" data-translate="social3_name">Instagram</div>
+                <div class="social-handle" data-translate="social3_handle">@beegii.chuuki</div>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/share/1BqbwKGDGz/?mibextid=wwXIfr" class="social-card scroll-reveal" onclick="openChat(); return false;">
+                <span class="social-icon" aria-hidden="true">
+                    <svg width="54" height="54" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" role="img">
+                        <title>Facebook</title>
+                        <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.35C0 23.407.593 24 1.325 24h11.5v-9.294H9.845V11.01h2.98V8.413c0-2.95 1.79-4.56 4.41-4.56 1.28 0 2.38.095 2.69.138v3.08h-1.86c-1.46 0-1.74.695-1.74 1.716v2.223h3.48l-.46 3.696h-3.02V24h5.86C23.407 24 24 23.407 24 22.675V1.325C24 .593 23.407 0 22.675 0z"/>
+                    </svg>
+                </span>
+                <div class="social-name" data-translate="social4_name">Facebook</div>
+                <div class="social-handle" data-translate="social4_handle">Beegii Chuuki</div>
+            </a>
+
+            <!-- Discord -->
+            <a class="social-card scroll-reveal" href="https://discord.gg/qt8AK2Ah" target="_blank" rel="noopener noreferrer" aria-label="Join the Beegii Chuuki Discord server">
+                <span class="social-icon" aria-hidden="true">
+                    <svg width="62" height="62" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img">
+                        <title>Discord</title>
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="#FFB7C5"/>
+                        <path fill="#7289DA" transform="translate(-0.5, -1)" d="M18 9c-.9-.4-1.8-.7-2.8-.9-.1.2-.3.6-.4.8-1-.2-2-.2-3 0-.1-.3-.2-.6-.4-.8-1 .2-1.9.5-2.8.9-1.7 2.6-2.2 5.1-1.9 7.6 1 .8 2 1.4 3.2 1.7.3-.4.5-.8.7-1.2-.4-.2-.7-.4-1-.6.1-.1.2-.1.2-.2 2 .9 4.3.9 6.3 0 .1.1.1.1.2.2-.3.2-.7.4-1 .6.2.4.5.8.7 1.2 1.1-.3 2.2-.9 3.2-1.7.3-2.5-.5-5-1.9-7.6zm-6.8 6.1c-.6 0-1.1-.6-1.1-1.3s.5-1.3 1.1-1.3c.6 0 1.1.6 1.1 1.3s-.5 1.3-1.1 1.3zm4.4 0c-.6 0-1.1-.6-1.1-1.3s.5-1.3 1.1-1.3c.6 0 1.1.6 1.1 1.3s-.5 1.3-1.1 1.3z"/>
+                    </svg>
+                </span>
+                <div class="social-labels">
+                    <div class="social-name" data-translate="social5_name">Discord</div>
+                    <div class="social-handle" data-translate="social5_handle">Beegii Chuuki Server</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-bubble" id="chatBubble">💬</div>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <div>
+                    <h3 data-translate="chat_title">Chat with Beegii's AI</h3>
+                    <small data-translate="chat_subtitle">Ask about courses & more</small>
+                </div>
+                <button class="close-chat" id="closeChat">×</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot" data-translate="chat_initial">
+                    Hi! I'm Beegii's AI assistant. How can I help you learn Japanese today? 日本語を勉強しましょう！
+                </div>
+            </div>
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+            <div class="quick-questions" id="quickQuestions">
+                <button class="quick-btn" data-question="Tell me about the courses" data-translate="quick_courses">Courses</button>
+                <button class="quick-btn" data-question="What are the prices?" data-translate="quick_pricing">Pricing</button>
+                <button class="quick-btn" data-question="Tell me about Beegii" data-translate="quick_about">About Beegii</button>
+                <button class="quick-btn" data-question="How to enroll?" data-translate="quick_enroll">Enrollment</button>
+                <button class="quick-btn" data-question="JLPT preparation" data-translate="quick_jlpt">JLPT Prep</button>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Type your question..." data-translate="chat_placeholder">
+                <button class="chat-send" id="chatSend" data-translate="chat_send">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <h2 class="section-title scroll-reveal" data-translate="reviews_title">Student Reviews</h2>
+        <p class="section-subtitle scroll-reveal" data-translate="reviews_subtitle">What my students say about learning with me</p>
+        
+        <div class="reviews-grid">
+            <!-- Review 1 -->
+            <div class="review-card scroll-reveal">
+                <div class="review-image-wrapper">
+                    <img src="./review1.jpg" alt="Student Review 1" class="review-image">
+                </div>
+                <div class="review-caption">
+                    <div class="review-stars">
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                    </div>
+                    <!--<p data-translate="review1_caption">"Excellent teacher!"</p>-->
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card scroll-reveal">
+                <div class="review-image-wrapper">
+                    <img src="./review2.jpg" alt="Student Review 2" class="review-image">
+                </div>
+                <div class="review-caption">
+                    <div class="review-stars">
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                    </div>
+                    <!--<p data-translate="review2_caption">"Best Japanese lessons!"</p>-->
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-card scroll-reveal">
+                <div class="review-image-wrapper">
+                    <img src="./review3.jpg" alt="Student Review 3" class="review-image">
+                </div>
+                <div class="review-caption">
+                    <div class="review-stars">
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                    </div>
+                    <!--<p data-translate="review3_caption">"Highly recommended!"</p>-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p data-translate="footer_text">© 2025 Beegii Chuuki. Made with 💕 for Japanese learners by @lauqzz.</p>
+        <p style="margin-top: 10px; font-size: 13px;">📧 binderiya0101@gmail.com | 📱 @beegii.chuuki</p>
+    </footer>
+
+    <script>
+        // Knowledge Base for Chat
+        const cvData = {
+            personal: {
+                name: "Binderiya Khuchitbaatar (Beegii)",
+                nickname: "Beegii Chuuki",
+                age: 25,
+                email: "binderiya0101@gmail.com",
+                phone: "+39-344-603-0123",
+                currentStudents: 62,
+                youtube: "https://www.youtube.com/@beegiichuuki",
+                youtubeLearning: "https://www.youtube.com/@Beegiijapanese",
+                instagram: "https://www.instagram.com/beegii.chuuki/"
+            },
+            certifications: [
+                "JLPT N1 (passed in 1 year 9 months) - December 2019",
+                "IELTS Overall: 5.5 - 2023"
+            ],
+            education: [
+                {
+                    degree: "Bachelor: Digital Economic and Business",
+                    institution: "Polytechnic University of the Marche (UNIVPM), Italy",
+                    period: "2024 - 2027",
+                    status: "Current"
+                },
+                {
+                    degree: "Bachelor: Global Communication",
+                    institution: "J. F. Oberlin University, Tokyo, Japan",
+                    period: "2020 - 2023",
+                    achievements: ["Faculty Scholarship", "Outstanding Foreign Student Scholarship"],
+                    links: [
+                        "https://www.obirin.ac.jp/flowers/hyakka-ryoran_016.html",
+                        "https://shingakunet.com/gakko/SC000268/campusLife/9002270860/"
+                    ]
+                },
+                {
+                    degree: "Diploma in Music (Morin khuur musician)",
+                    institution: "Music and Dance College, Ulaanbaatar, Mongolia",
+                    period: "2017"
+                },
+                {
+                    program: "Exchange Student Program",
+                    institution: "Valdosta State University, Georgia, USA",
+                    period: "2022"
+                }
+            ],
+            experience: [
+                {
+                    title: "Online Japanese Teacher",
+                    period: "September 2020 - Present",
+                    type: "Freelance/Remote",
+                    responsibilities: [
+                        "Created lesson plans and supported JLPT preparation (N5-N1)",
+                        "Teaching both one-on-one and small group online classes to Mongolian students",
+                        "Focus on conversation and listening skills",
+                        "Currently teaching 62 active students"
+                    ]
+                },
+                {
+                    title: "Founder",
+                    organization: "Tokitenku Foundation",
+                    period: "September 2020 - September 2024",
+                    location: "Mongolia",
+                    responsibilities: [
+                        "Continued late father's NPO to support foreigners in Japan",
+                        "Provided COVID-19 aid, Japanese lessons, and advisory services for Mongolians"
+                    ]
+                },
+                {
+                    title: "Premier Banking Manager",
+                    company: "Golomt Bank",
+                    location: "Mongolia",
+                    period: "March 2024 - September 2024",
+                    responsibilities: [
+                        "Helped open branches",
+                        "Managed customer services and policies"
+                    ]
+                },
+                {
+                    title: "Customer Sales Associate",
+                    company: "UNIQLO",
+                    location: "Kanagawa, Japan",
+                    period: "April 2021 - September 2023"
+                },
+                {
+                    title: "Customer Sales Associate",
+                    company: "ZARA",
+                    location: "Tokyo, Japan",
+                    period: "April 2020 - April 2021"
+                }
+            ],
+            courses: [
+                {
+                    name: "1:1 Premium Class",
+                    type: "Individual",
+                    description: "Personalized lessons tailored to your goals and pace",
+                    features: [
+                        "Customized lesson plans",
+                        "Flexible scheduling",
+                        "JLPT preparation (N5-N1)",
+                        "Speaking & listening focus"
+                    ],
+                    link: "https://forms.gle/A5rntc9shtFzUBCX6"
+                },
+                {
+                    name: "Group Class",
+                    type: "Group",
+                    description: "Learn with peers in an interactive environment",
+                    features: [
+                        "Small group sizes",
+                        "Interactive sessions",
+                        "Cultural discussions",
+                        "Affordable pricing"
+                    ],
+                    link: "https://forms.gle/mJuo87bF44z4T5gU6"
+                },
+                {
+                    name: "Mock Test Class",
+                    type: "Test Preparation",
+                    levels: "N5-N2",
+                    description: "Practice with real JLPT-style tests and get detailed feedback"
+                },
+                {
+                    name: "Kanji Class",
+                    type: "Specialized",
+                    description: "Master Japanese characters with systematic learning methods"
+                },
+                {
+                    name: "Support in Japan",
+                    type: "Mentorship",
+                    description: "For Mongolian students studying Japanese in Japan",
+                    features: [
+                        "Mongolian explanations for Japanese grammar",
+                        "Message anytime with quick replies",
+                        "30-minute weekly meeting",
+                        "Monthly fee: 125,000 tugrug"
+                    ]
+                }
+            ],
+            languages: [
+                { language: "Mongolian", level: "Native" },
+                { language: "Japanese", level: "C1 (JLPT N1)" },
+                { language: "English", level: "B1 (IELTS 5.5)" },
+                { language: "Italian", level: "A2" }
+            ],
+            skills: [
+                "Video Editing",
+                "Teaching",
+                "Public Speaking & Presentation",
+                "Leadership & Initiative",
+                "Community Outreach & Social Impact",
+                "Customer Service & Hospitality",
+                "Microsoft Office (Word, Excel, PowerPoint)"
+            ],
+            about: "I've been passionate about music since childhood, dedicating hours to perfect my skills, which taught me patience and discipline. Living and studying in multiple countries has made me curious, open-minded, and eager to embrace new cultures. I've gained experience in various fields—including banking, customer service, business, teaching, and content creation—and I share my journey, language lessons, and cultural insights on my YouTube channel, Beegii Chuuki."
+        };
+
+        // Translations
+        const translations = {
+            en: {
+                // Navigation
+                nav_home: "Home",
+                nav_courses: "Courses",
+                nav_about: "About",
+                nav_social: "Social",
+                
+                // Hero Section
+                hero_title: "Learn Japanese with Beegii",
+                hero_subtitle: "JLPT N1 Certified Teacher from Mongolia",
+                hero_description: "Master Japanese from N5 to N1 with personalized online lessons, cultural insights, and proven teaching methods. Join 62+ students already learning with me!",
+                hero_btn_primary: "Start Learning",
+                hero_btn_secondary: "View Courses",
+                
+                // Stats
+                stat_students: "Active Students",
+                stat_teaching: "Years Teaching",
+                stat_jlpt: "JLPT Certified",
+                stat_countries: "Countries Studied",
+                
+                // Courses Section
+                courses_title: "My Courses",
+                courses_subtitle: "Choose the perfect course for your learning journey",
+                
+                course1_title: "1:1 Premium Class",
+                course1_desc: "Personalized lessons tailored to your goals and pace. Perfect for focused learning and rapid progress.",
+                course1_feature1: "Customized lesson plans",
+                course1_feature2: "Flexible scheduling",
+                course1_feature3: "JLPT preparation (N5-N1)",
+                course1_feature4: "Speaking & listening focus",
+                course1_btn: "Enroll Now",
+                
+                course2_title: "Group Class",
+                course2_desc: "Learn with peers in an interactive environment. Great for building confidence and community.",
+                course2_feature1: "Small group sizes",
+                course2_feature2: "Interactive sessions",
+                course2_feature3: "Cultural discussions",
+                course2_feature4: "Affordable pricing",
+                course2_btn: "Join Group",
+                
+                course3_title: "Mock Test Class",
+                course3_desc: "Practice with real JLPT-style tests and get detailed feedback to boost your exam confidence.",
+                course3_feature1: "All levels N5-N2",
+                course3_feature2: "Detailed feedback",
+                course3_feature3: "Exam strategies",
+                course3_feature4: "Time management tips",
+                course3_btn: "Learn More",
+                
+                course4_title: "Kanji Class",
+                course4_desc: "Master Japanese characters with systematic learning methods and memory techniques.",
+                course4_feature1: "Structured curriculum",
+                course4_feature2: "Memory techniques",
+                course4_feature3: "Writing practice",
+                course4_feature4: "Reading exercises",
+                course4_btn: "Learn More",
+                
+                course5_title: "Support in Japan",
+                course5_desc: "For Mongolian students in Japan who need help with Japanese grammar and cultural adaptation.",
+                course5_feature1: "Mongolian explanations",
+                course5_feature2: "Weekly 30-min meetings",
+                course5_feature3: "24/7 message support",
+                course5_feature4: "125,000₮/month",
+                course5_btn: "Get Support",
+                
+                // About Section
+                about_title: "About Me",
+                about_p1: "Hello! I'm Binderiya (Beegii), a passionate Japanese language teacher from Mongolia. I passed JLPT N1 in just 1 year and 9 months, and now I help Mongolian students achieve their Japanese learning goals.",
+                about_p2: "With experience studying in 4 countries (Mongolia, Japan, USA, Italy), I bring a unique multicultural perspective to language teaching. I graduated from J.F. Oberlin University in Tokyo with a degree in Global Communication.",
+                about_p3: "Beyond teaching, I'm a musician (Morin khuur), content creator, and founder of the Tokitenku Foundation, which supports Mongolians in Japan. I share my journey and lessons on my YouTube channel \"Beegii Chuuki.\"",
+                
+                timeline1_year: "2024 - Present",
+                timeline1_content: "Online Japanese Teacher & Content Creator",
+                timeline2_year: "2020 - 2023",
+                timeline2_content: "J.F. Oberlin University, Tokyo - Global Communication",
+                timeline3_year: "2019",
+                timeline3_content: "Passed JLPT N1 (1 year 9 months study)",
+                timeline4_year: "2020",
+                timeline4_content: "Founded Tokitenku Foundation",
+                timeline5_year: "2017",
+                timeline5_content: "Graduated as Morin khuur Musician, Mongolia",
+                
+                // Social Section
+                social_title: "Connect With Me",
+                social_subtitle: "Follow my journey and learning content",
+                social1_name: "YouTube - Main",
+                social1_handle: "@beegiichuuki",
+                social2_name: "YouTube - Learning",
+                social2_handle: "@Beegiijapanese",
+                social3_name: "Instagram",
+                social3_handle: "@beegii.chuuki",
+                social4_name: "Facebook",
+                social4_handle: "Beegii Chuuki",
+                social5_name: "Discord",
+                social5_handle: "Beegii Chuuki Server",
+                
+                // Chat
+                chat_title: "Chat with Beegii's AI",
+                chat_subtitle: "Ask about courses & more",
+                chat_initial: "Hi! I'm Beegii's AI assistant. How can I help you learn Japanese today? 日本語を勉強しましょう！",
+                chat_placeholder: "Type your question...",
+                chat_send: "Send",
+                
+                quick_courses: "Courses",
+                quick_pricing: "Pricing",
+                quick_about: "About Beegii",
+                quick_enroll: "Enrollment",
+                quick_jlpt: "JLPT Prep",
+                
+                // Footer
+                footer_text: "© 2025 Beegii Chuuki. Made with 💕 for Japanese learners by @lauqzz.",
+            
+                // Chat Responses
+                chat_courses_response: "**Available Courses:**\n\n**1:1 Premium Class** - Personalized lessons for your specific goals\n**Group Class** - Learn with other students in small groups\n**Mock Test Class** - JLPT practice tests (N5-N2)\n**Kanji Class** - Master Japanese characters\n**Support in Japan** - For Mongolian students in Japan (125,000₮/month)\n\nAll courses cover JLPT levels N5-N1! Which one interests you?",
+                
+                chat_price_response: "**Pricing Information:**\n\nFor detailed pricing on 1:1 and Group classes, please fill out the enrollment form and I'll get back to you with a personalized quote!\n\n**Support in Japan program:** 125,000 tugrug/month\n\nWould you like me to help you choose the right course?",
+                
+                chat_jlpt_response: "**JLPT Preparation:**\n\nI passed JLPT N1 in just **1 year and 9 months**, so I know exactly what it takes!\n\nI offer:\n• Comprehensive lessons for all levels (N5-N1)\n• Mock test classes with detailed feedback\n• Proven study strategies\n• Grammar explanations in Mongolian\n\nWhich level are you preparing for?",
+                
+                chat_about_response: "**About Beegii:**\n\nHi! I'm Binderiya (Beegii), a 25-year-old Japanese teacher from Mongolia 🇲🇳\n\n• **JLPT N1** certified (passed in 1 year 9 months!)\n• Graduated from **J.F. Oberlin University** in Tokyo\n• **62+ students** currently learning with me\n• Studied in 4 countries: Mongolia, Japan, USA, Italy\n• Founder of **Tokitenku Foundation**\n• Morin khuur musician 🎵\n• YouTuber sharing Japanese lessons and life in Japan\n\nI love helping Mongolian students achieve their Japanese dreams!",
+                
+                chat_enroll_response: "**Ready to Start Learning?** 🎉\n\nChoose your path:\n\n**1:1 Premium Class:**\nFill out: https://forms.gle/A5rntc9shtFzUBCX6\n\n**Group Class:**\nFill out: https://forms.gle/mJuo87bF44z4T5gU6\n\nAfter submitting, I'll contact you within 24 hours to discuss your goals and schedule!\n\nAny questions before enrolling?",
+                
+                chat_experience_response: "**My Experience:**\n\n**Teaching:** Online Japanese teacher since 2020 (62+ students)\n\n**Education:**\n• J.F. Oberlin University, Tokyo (Global Communication)\n• Currently studying Digital Economics in Italy\n• Exchange student in USA\n\n**Other Work:**\n• Founder of Tokitenku Foundation\n• Premier Banking Manager (Golomt Bank)\n• UNIQLO & ZARA customer service\n\nI bring multicultural perspective to language teaching!",
+                
+                chat_youtube_response: "**YouTube Channels:**\n\n**Beegii Chuuki** (Main channel)\nLife vlogs, cultural content, my journey\n→ https://www.youtube.com/@beegiichuuki\n\n**Beegii Japanese** (Learning channel)\nJapanese lessons, JLPT tips, grammar\n→ https://www.youtube.com/@Beegiijapanese\n\nSubscribe to get free Japanese learning content!",
+                
+                chat_contact_response: "**Contact Me:**\n\n📧 Email: binderiya0101@gmail.com\n📱 Phone: +39-344-603-0123\n📸 Instagram: @beegii.chuuki\n💬 Facebook: Beegii Chuuki\n\nFeel free to reach out anytime! I usually reply within 24 hours.",
+                
+                chat_mongolian_response: "**For Mongolian Students:** 🇲🇳\n\nБи Монгол хүн учраас Монголоор тайлбарлаж чадна!\n\nI specialize in teaching Japanese to Mongolian students because:\n• I can explain difficult grammar in Mongolian\n• I understand the challenges you face\n• Cultural bridge between Mongolia & Japan\n\nSpecial program for Mongolians studying in Japan available!",
+                
+                chat_japan_response: "**My Japan Journey:**\n\nI lived in Japan for several years:\n• Studied at J.F. Oberlin University, Tokyo\n• Passed JLPT N1 in just 1 year 9 months\n• Worked at UNIQLO and ZARA\n• Founded Tokitenku Foundation to help Mongolians in Japan\n\nNow I help other Mongolians achieve their Japanese dreams!\n\nWant to study in Japan? I can help you prepare!",
+                
+                chat_fallback_response: "I can help you with:\n\n• **Course information** - 1:1, Group, JLPT prep\n• **Pricing** details\n• **About Beegii** - my story and experience\n• **Enrollment** process\n• **JLPT preparation** tips\n• **Contact** information\n\nWhat would you like to know? 😊",
+            
+                // Navigation
+                nav_reviews: "Reviews",
+                
+                // Reviews Section
+                reviews_title: "Student Reviews",
+                reviews_subtitle: "What my students say about learning with me",
+                review1_caption: "Excellent teacher!",
+                review2_caption: "Best Japanese lessons!",
+                review3_caption: "Highly recommended!",
+            },
+            
+            mn: {
+                // Navigation
+                nav_home: "Нүүр",
+                nav_courses: "Хичээлүүд",
+                nav_about: "Миний тухай",
+                nav_social: "Холбоо барих",
+                
+                // Hero Section
+                hero_title: "Beegii-тэй Япон хэл суралцаарай",
+                hero_subtitle: "JLPT N1 зэрэгтэй багш, Монгол",
+                hero_description: "N5-аас N1 хүртэл хувийн хичээл, соёлын ойлголт, батлагдсан заах аргаар Япон хэлийг эзэмш. Надтай хамт сурч буй 62+ оюутантай нэгдээрэй!",
+                hero_btn_primary: "Суралцаж эхлэх",
+                hero_btn_secondary: "Хичээлүүдийг үзэх",
+                
+                // Stats
+                stat_students: "Идэвхтэй оюутан",
+                stat_teaching: "Заасан жил",
+                stat_jlpt: "JLPT",
+                stat_countries: "Улс оронд суралцсан",
+                
+                // Courses Section
+                courses_title: "Миний хичээлүүд",
+                courses_subtitle: "Өөрийн хэрэгцээнд тохирсон хичээлээ сонгоорой",
+                
+                course1_title: "1:1 Хувийн хичээл",
+                course1_desc: "Таны зорилго, хурдад тохируулсан хувийн хичээл. Төвлөрсөн суралцалт, хурдан дэвшилтэд тохиромжтой.",
+                course1_feature1: "Хувийн хичээлийн төлөвлөгөө",
+                course1_feature2: "Уян хатан цагийн хуваарь",
+                course1_feature3: "JLPT бэлтгэл (N5-N1)",
+                course1_feature4: "Ярих, сонсох чадварт анхаарах",
+                course1_btn: "Бүртгүүлэх",
+                
+                course2_title: "Бүлгийн хичээл",
+                course2_desc: "Хамтран суралцагчидтайгаа идэвхтэй орчинд суралцаарай. Итгэл, хамтын ажиллагаа бий болгоход маш сайн.",
+                course2_feature1: "Жижиг бүлэг",
+                course2_feature2: "Идэвхтэй хичээл",
+                course2_feature3: "Соёлын хэлэлцүүлэг",
+                course2_feature4: "Боломжийн үнэ",
+                course2_btn: "Нэгдэх",
+                
+                course3_title: "Mock шалгалтын хичээл",
+                course3_desc: "JLPT-тэй төстэй шалгалтаар дадлага хийж, нарийн санал авч, шалгалтын өөртөө итгэх итгэлийг нэмэгдүүлээрэй.",
+                course3_feature1: "Бүх түвшин N5-N2",
+                course3_feature2: "Нарийн санал",
+                course3_feature3: "Шалгалтын стратеги",
+                course3_feature4: "Цаг удирдах зөвлөмж",
+                course3_btn: "Дэлгэрэнгүй",
+                
+                course4_title: "Kanji хичээл",
+                course4_desc: "Системтэй аргаар Япон тэмдэгтүүдийг эзэмшиж, санах техникүүдийг ашигла.",
+                course4_feature1: "Бүтэцтэй хөтөлбөр",
+                course4_feature2: "Санах техникүүд",
+                course4_feature3: "Бичих дадлага",
+                course4_feature4: "Унших дасгал",
+                course4_btn: "Дэлгэрэнгүй",
+                
+                course5_title: "Японд байгаа монголчуудад",
+                course5_desc: "Японд Япон хэл сурч буй монгол оюутнуудад Япон хэлний дүрэм, соёлын дасан зохицоход туслах хөтөлбөр.",
+                course5_feature1: "Монголоор тайлбарлах",
+                course5_feature2: "Долоо хоног бүр 30 минутын уулзалт",
+                course5_feature3: "24/7 мессеж дэмжлэг",
+                course5_feature4: "Сард 125,000₮",
+                course5_btn: "Дэмжлэг авах",
+                
+                // About Section
+                about_title: "Миний тухай",
+                about_p1: "Сайн уу! Би Биндэрья (Beegii), Монголоос Япон хэлний багш. Би JLPT N1-ийг зөвхөн 1 жил 9 сарын дотор тэнцсэн бөгөөд одоо монгол оюутнуудад Япон хэл сурахад нь тусалдаг.",
+                about_p2: "4 улсад (Монгол, Япон, АНУ, Итали) суралцсан туршлагатай учир хэл заахдаа олон улсын өвөрмөц харах өнцгийг авчирдаг. Би Токиогийн J.F. Oberlin их сургуулиас Дэлхийн харилцаа холбооны чиглэлээр төгссөн.",
+                about_p3: "Заахаас гадна би хөгжимчин (Морин хуур), контент бүтээгч, мөн Японд байгаа монголчуудыг дэмждэг Токитэнкү сангийн үүсгэн байгуулагч. Би өөрийн аялал, хичээлийг YouTube 'Beegii Chuuki' суваг дээрээ хуваалцдаг.",
+                
+                timeline1_year: "2024 - Одоо",
+                timeline1_content: "Онлайн Япон хэлний багш & Контент бүтээгч",
+                timeline2_year: "2020 - 2023",
+                timeline2_content: "J.F. Oberlin их сургууль, Токио - Дэлхийн харилцаа",
+                timeline3_year: "2019",
+                timeline3_content: "JLPT N1 тэнцсэн (1 жил 9 сар)",
+                timeline4_year: "2020",
+                timeline4_content: "Токитэнкү сан үүсгэн байгуулсан",
+                timeline5_year: "2017",
+                timeline5_content: "Морин хуурч хөгжимчнөөр төгссөн, Монгол",
+                
+                // Social Section
+                social_title: "Холбоо барих",
+                social_subtitle: "Миний аялал, контентыг дагаарай",
+                social1_name: "YouTube - Үндсэн",
+                social1_handle: "@beegiichuuki",
+                social2_name: "YouTube - Сургалт",
+                social2_handle: "@Beegiijapanese",
+                social3_name: "Instagram",
+                social3_handle: "@beegii.chuuki",
+                social4_name: "Facebook",
+                social4_handle: "Beegii Chuuki",
+                social5_name: "Discord",
+                social5_handle: "Beegii Chuuki сервер",
+                
+                // Chat
+                chat_title: "Beegii-ийн AI-тай чатлах",
+                chat_subtitle: "Хичээл болон бусад зүйлийн талаар асуугаарай",
+                chat_initial: "Сайн уу! Би Beegii-ийн AI туслах. Япон хэл сурахад яаж туслах вэ? 日本語を勉強しましょう！",
+                chat_placeholder: "Асуултаа бичнэ үү...",
+                chat_send: "Илгээх",
+                
+                quick_courses: "Хичээлүүд",
+                quick_pricing: "Үнэ",
+                quick_about: "Beegii-ийн тухай",
+                quick_enroll: "Бүртгүүлэх",
+                quick_jlpt: "JLPT бэлтгэл",
+                
+                // Footer
+                footer_text: "© 2025 Beegii Chuuki. Япон хэл сурагчдад зориулж ❤️-ээр @lauqzz бүтээсэн.",
+
+                // Chat Responses
+                chat_courses_response: "**Боломжтой хичээлүүд:**\n\n**1:1 Хувийн хичээл** - Таны зорилгод тусгайлан зориулсан\n**Бүлгийн хичээл** - Жижиг бүлгээр бусад оюутнуудтай хамт\n**Mock шалгалтын хичээл** - JLPT дадлага шалгалт (N5-N2)\n**Kanji хичээл** - Япон тэмдэгтүүдийг эзэмших\n**Японд байгаа монголчуудад** - Японд байгаа монгол оюутнуудад (сард 125,000₮)\n\nБүх хичээл JLPT N5-N1 түвшинг хамардаг! Аль нь танд сонирхолтой вэ?",
+                
+                chat_price_response: "**Үнийн мэдээлэл:**\n\n1:1 болон Бүлгийн хичээлийн нарийвчилсан үнийн мэдээллийг бүртгүүлэх маягт бөглөснөөр би тантай холбогдож хувийн үнийн санал өгөх болно!\n\n**Японд байгаа монголчуудад:** сард 125,000 төгрөг\n\nТаньд тохирох хичээл сонгоход туслая уу?",
+                
+                chat_jlpt_response: "**JLPT бэлтгэл:**\n\nБи JLPT N1-ийг зөвхөн **1 жил 9 сарын** дотор тэнцсэн тул юу хэрэгтэйг сайн мэднэ!\n\nБи санал болгож байна:\n• Бүх түвшний иж бүрэн хичээл (N5-N1)\n• Нарийн санал бүхий Mock шалгалт\n• Батлагдсан суралцах стратеги\n• Монгол хэлээр дүрмийн тайлбар\n\nТа ямар түвшинд бэлтгэж байна?",
+                
+                chat_about_response: "**Beegii-ийн тухай:**\n\nСайн уу! Би Биндэрья (Beegii), Монголоос 25 настай Япон хэлний багш 🇲🇳\n\n• **JLPT N1** зэрэгтэй (1 жил 9 сарын дотор тэнцсэн!)\n• Токиогийн **J.F. Oberlin их сургуулиас** төгссөн\n• **62+ оюутан** одоо надтай хамт суралцаж байна\n• 4 улсад суралцсан: Монгол, Япон, АНУ, Итали\n• **Токитэнкү сангийн** үүсгэн байгуулагч\n• Морин хуурч 🎵\n• YouTube-ээр Япон хэлний хичээл, амьдралын талаар хуваалцдаг\n\nБи монгол оюутнуудад Япон хэлний мөрөөдлөө биелүүлэхэд туслах дуртай!",
+                
+                chat_enroll_response: "**Суралцахад бэлэн үү?** 🎉\n\nЗамаа сонгоорой:\n\n**1:1 Хувийн хичээл:**\nБөглөх: https://forms.gle/A5rntc9shtFzUBCX6\n\n**Бүлгийн хичээл:**\nБөглөх: https://forms.gle/mJuo87bF44z4T5gU6\n\nИлгээсний дараа 24 цагийн дотор би тантай холбогдож зорилго, цагийн хуваариа ярилцах болно!\n\nБүртгүүлэхээс өмнө асуулт байна уу?",
+                
+                chat_experience_response: "**Миний туршлага:**\n\n**Заах:** 2020 оноос онлайн Япон хэлний багш (62+ оюутан)\n\n**Боловсрол:**\n• J.F. Oberlin их сургууль, Токио (Дэлхийн харилцаа)\n• Одоо Италид Дижитал эдийн засаг судалж байна\n• АНУ-д солилцооны оюутан\n\n**Бусад ажил:**\n• Токитэнкү сан үүсгэн байгуулагч\n• Голомт банкны Premier менежер\n• UNIQLO & ZARA үйлчлүүлэгчийн үйлчилгээ\n\nБи хэл заахдаа олон улсын харах өнцгийг авчирдаг!",
+                
+                chat_youtube_response: "**YouTube сувгууд:**\n\n**Beegii Chuuki** (Үндсэн суваг)\nАмьдралын vlog, соёлын контент, миний аялал\n→ https://www.youtube.com/@beegiichuuki\n\n**Beegii Japanese** (Сургалтын суваг)\nЯпон хэлний хичээл, JLPT зөвлөмж, дүрэм\n→ https://www.youtube.com/@Beegiijapanese\n\nҮнэгүй Япон хэлний контент авахын тулд бүртгүүлээрэй!",
+                
+                chat_contact_response: "**Холбоо барих:**\n\n📧 Email: binderiya0101@gmail.com\n📱 Утас: +39-344-603-0123\n📸 Instagram: @beegii.chuuki\n💬 Facebook: Beegii Chuuki\n\nХүссэн үедээ холбогдоорой! Би ихэвчлэн 24 цагийн дотор хариулдаг.",
+                
+                chat_mongolian_response: "**Монгол оюутнуудад:** 🇲🇳\n\nБи Монгол хүн учраас Монголоор тайлбарлаж чадна!\n\nБи монгол оюутнуудад Япон хэл заахад мэргэшсэн учир нь:\n• Хэцүү дүрмийг Монголоор тайлбарлаж чадна\n• Таны тулгардаг бэрхшээлийг ойлгодог\n• Монгол болон Японы соёлын гүүр\n\nЯпонд суралцаж буй монголчуудад тусгай хөтөлбөр байна!",
+                
+                chat_japan_response: "**Миний Японы аялал:**\n\nБи Японд хэдэн жил амьдарсан:\n• J.F. Oberlin их сургуульд Токиод суралцсан\n• JLPT N1-ийг зөвхөн 1 жил 9 сарын дотор тэнцсэн\n• UNIQLO болон ZARA-д ажилласан\n• Японд монголчуудад туслах Токитэнкү сан үүсгэн байгуулсан\n\nОдоо би бусад монголчуудад Япон хэлний мөрөөдлийг биелүүлэхэд тусалдаг!\n\nЯпонд суралцахыг хүсч байна уу? Би бэлтгэхэд тусалж чадна!",
+                
+                chat_fallback_response: "Би танд тусалж чадна:\n\n• **Хичээлийн мэдээлэл** - 1:1, Бүлэг, JLPT бэлтгэл\n• **Үнийн** дэлгэрэнгүй\n• **Beegii-ийн тухай** - миний түүх, туршлага\n• **Бүртгүүлэх** үйл явц\n• **JLPT бэлтгэлийн** зөвлөмж\n• **Холбоо барих** мэдээлэл\n\nЮу мэдэхийг хүсч байна вэ? 😊",
+
+                // Navigation
+                nav_reviews: "Сэтгэгдэл",
+                
+                // Reviews Section
+                reviews_title: "Оюутны сэтгэгдэл",
+                reviews_subtitle: "Надтай хамт суралцсан оюутнууд юу гэж хэлдэг вэ",
+                review1_caption: "Маш сайн багш!",
+                review2_caption: "Хамгийн сайн Япон хэлний хичээл!",
+                review3_caption: "Их санал болгож байна!",
+            },
+            
+            jp: {
+                // Navigation
+                nav_home: "ホーム",
+                nav_courses: "コース",
+                nav_about: "私について",
+                nav_social: "SNS",
+                
+                // Hero Section
+                hero_title: "Beegiiと日本語を学ぼう",
+                hero_subtitle: "JLPT N1認定講師、モンゴル出身",
+                hero_description: "N5からN1まで、個別レッスン、文化的洞察、実証済みの教授法で日本語をマスター。すでに62人以上の生徒が私と一緒に学んでいます！",
+                hero_btn_primary: "学習を始める",
+                hero_btn_secondary: "コースを見る",
+                
+                // Stats
+                stat_students: "アクティブな生徒",
+                stat_teaching: "教えた年数",
+                stat_jlpt: "JLPT認定",
+                stat_countries: "留学国数",
+                
+                // Courses Section
+                courses_title: "私のコース",
+                courses_subtitle: "あなたの学習の旅に最適なコースを選んでください",
+                
+                course1_title: "1:1プレミアムクラス",
+                course1_desc: "あなたの目標とペースに合わせたパーソナライズされたレッスン。集中的な学習と迅速な進歩に最適です。",
+                course1_feature1: "カスタマイズされたレッスンプラン",
+                course1_feature2: "柔軟なスケジューリング",
+                course1_feature3: "JLPT対策（N5-N1）",
+                course1_feature4: "スピーキング＆リスニング重視",
+                course1_btn: "今すぐ登録",
+                
+                course2_title: "グループクラス",
+                course2_desc: "仲間と一緒にインタラクティブな環境で学びましょう。自信とコミュニティを築くのに最適です。",
+                course2_feature1: "少人数グループ",
+                course2_feature2: "インタラクティブなセッション",
+                course2_feature3: "文化的ディスカッション",
+                course2_feature4: "手頃な価格",
+                course2_btn: "グループに参加",
+                
+                course3_title: "模擬試験クラス",
+                course3_desc: "本物のJLPTスタイルのテストで練習し、詳細なフィードバックを得て、試験の自信を高めましょう。",
+                course3_feature1: "全レベルN5-N2",
+                course3_feature2: "詳細なフィードバック",
+                course3_feature3: "試験戦略",
+                course3_feature4: "時間管理のヒント",
+                course3_btn: "詳しく見る",
+                
+                course4_title: "漢字クラス",
+                course4_desc: "体系的な学習方法と記憶テクニックで日本語の文字をマスターしましょう。",
+                course4_feature1: "構造化されたカリキュラム",
+                course4_feature2: "記憶テクニック",
+                course4_feature3: "書く練習",
+                course4_feature4: "読解演習",
+                course4_btn: "詳しく見る",
+                
+                course5_title: "日本でのサポート",
+                course5_desc: "日本で日本語を勉強しているモンゴル人学生のための日本語文法と文化適応のサポート。",
+                course5_feature1: "モンゴル語での説明",
+                course5_feature2: "週1回30分のミーティング",
+                course5_feature3: "24時間メッセージサポート",
+                course5_feature4: "月額125,000トゥグルグ",
+                course5_btn: "サポートを受ける",
+                
+                // About Section
+                about_title: "私について",
+                about_p1: "こんにちは！私はビンデリヤ（Beegii）、モンゴル出身の情熱的な日本語教師です。わずか1年9ヶ月でJLPT N1に合格し、現在はモンゴル人学生が日本語学習の目標を達成するのを支援しています。",
+                about_p2: "4カ国（モンゴル、日本、アメリカ、イタリア）で学んだ経験があるため、言語教育にユニークな多文化的視点をもたらします。東京のJ.F.オベリン大学でグローバルコミュニケーションの学位を取得しました。",
+                about_p3: "教えること以外にも、私は音楽家（馬頭琴）、コンテンツクリエイター、そして日本のモンゴル人を支援するトキテンク財団の創設者です。YouTubeチャンネル「Beegii Chuuki」で私の旅とレッスンを共有しています。",
+                
+                timeline1_year: "2024年 - 現在",
+                timeline1_content: "オンライン日本語教師＆コンテンツクリエイター",
+                timeline2_year: "2020年 - 2023年",
+                timeline2_content: "J.F.オベリン大学、東京 - グローバルコミュニケーション",
+                timeline3_year: "2019年",
+                timeline3_content: "JLPT N1合格（1年9ヶ月の学習）",
+                timeline4_year: "2020年",
+                timeline4_content: "トキテンク財団設立",
+                timeline5_year: "2017年",
+                timeline5_content: "馬頭琴奏者として卒業、モンゴル",
+                
+                // Social Section
+                social_title: "つながりましょう",
+                social_subtitle: "私の旅と学習コンテンツをフォロー",
+                social1_name: "YouTube - メイン",
+                social1_handle: "@beegiichuuki",
+                social2_name: "YouTube - 学習",
+                social2_handle: "@Beegiijapanese",
+                social3_name: "Instagram",
+                social3_handle: "@beegii.chuuki",
+                social4_name: "Facebook",
+                social4_handle: "Beegii Chuuki",
+                social5_name: "Discord",
+                social5_handle: "Beegii Chuukiサーバー",
+                
+                // Chat
+                chat_title: "BeegiiのAIとチャット",
+                chat_subtitle: "コースなどについて質問",
+                chat_initial: "こんにちは！私はBeegiiのAIアシスタントです。今日はどのように日本語学習をお手伝いできますか？日本語を勉強しましょう！",
+                chat_placeholder: "質問を入力してください...",
+                chat_send: "送信",
+                
+                quick_courses: "コース",
+                quick_pricing: "料金",
+                quick_about: "Beegiiについて",
+                quick_enroll: "登録",
+                quick_jlpt: "JLPT対策",
+                
+                // Footer
+                footer_text: "© 2025 Beegii Chuuki. 日本語学習者のために💕 @lauqzzが作成。",
+                
+                // Chat Responses
+                chat_courses_response: "**利用可能なコース:**\n\n**1:1プレミアムクラス** - あなたの目標に合わせた個別レッスン\n**グループクラス** - 少人数グループで他の生徒と一緒に\n**模擬試験クラス** - JLPT練習テスト（N5-N2）\n**漢字クラス** - 日本語の文字をマスター\n**日本でのサポート** - 日本のモンゴル人学生向け（月額125,000₮）\n\nすべてのコースはJLPT N5-N1レベルをカバーしています！どれに興味がありますか？",
+                
+                chat_price_response: "**料金情報:**\n\n1:1およびグループクラスの詳細な料金については、登録フォームに記入していただければ、個別の見積もりをお送りします！\n\n**日本でのサポートプログラム:** 月額125,000トゥグルグ\n\nコース選びをお手伝いしましょうか？",
+                
+                chat_jlpt_response: "**JLPT対策:**\n\n私はわずか**1年9ヶ月**でJLPT N1に合格したので、何が必要かよく分かります！\n\n提供内容:\n• 全レベル対応の総合レッスン（N5-N1）\n• 詳細なフィードバック付き模擬試験\n• 実証済みの学習戦略\n• モンゴル語での文法説明\n\nどのレベルの準備をしていますか？",
+                
+                chat_about_response: "**Beegiiについて:**\n\nこんにちは！私はビンデリヤ（Beegii）、モンゴル出身の25歳の日本語教師です 🇲🇳\n\n• **JLPT N1**認定（1年9ヶ月で合格！）\n• 東京の**J.F.オベリン大学**卒業\n• **62人以上**の生徒が現在学習中\n• 4カ国で学んだ経験: モンゴル、日本、アメリカ、イタリア\n• **トキテンク財団**創設者\n• 馬頭琴奏者 🎵\n• YouTubeで日本語レッスンと日本での生活を共有\n\nモンゴル人学生が日本語の夢を実現するお手伝いが大好きです！",
+                
+                chat_enroll_response: "**学習を始める準備はできましたか？** 🎉\n\nあなたの道を選んでください:\n\n**1:1プレミアムクラス:**\n記入: https://forms.gle/A5rntc9shtFzUBCX6\n\n**グループクラス:**\n記入: https://forms.gle/mJuo87bF44z4T5gU6\n\n送信後、24時間以内にご連絡し、目標とスケジュールについて話し合います！\n\n登録前に質問はありますか？",
+                
+                chat_experience_response: "**私の経験:**\n\n**教育:** 2020年からオンライン日本語教師（62人以上の生徒）\n\n**学歴:**\n• J.F.オベリン大学、東京（グローバルコミュニケーション）\n• 現在イタリアでデジタル経済学を勉強中\n• アメリカで交換留学生\n\n**その他の仕事:**\n• トキテンク財団創設者\n• ゴロムト銀行プレミアバンキングマネージャー\n• UNIQLO & ZARA カスタマーサービス\n\n言語教育に多文化的視点を持ち込んでいます！",
+                
+                chat_youtube_response: "**YouTubeチャンネル:**\n\n**Beegii Chuuki**（メインチャンネル）\nライフvlog、文化コンテンツ、私の旅\n→ https://www.youtube.com/@beegiichuuki\n\n**Beegii Japanese**（学習チャンネル）\n日本語レッスン、JLPTのヒント、文法\n→ https://www.youtube.com/@Beegiijapanese\n\n無料の日本語学習コンテンツを入手するためにチャンネル登録してください！",
+                
+                chat_contact_response: "**お問い合わせ:**\n\n📧 メール: binderiya0101@gmail.com\n📱 電話: +39-344-603-0123\n📸 Instagram: @beegii.chuuki\n💬 Facebook: Beegii Chuuki\n\nいつでもご連絡ください！通常24時間以内に返信します。",
+                
+                chat_mongolian_response: "**モンゴル人学生向け:** 🇲🇳\n\nБи Монгол хүн учраас Монголоор тайлбарлаж чадна!\n\n私がモンゴル人学生に日本語を教えることに特化している理由:\n• 難しい文法をモンゴル語で説明できる\n• あなたが直面する課題を理解している\n• モンゴルと日本の文化の架け橋\n\n日本で勉強しているモンゴル人向けの特別プログラムあり！",
+                
+                chat_japan_response: "**私の日本での旅:**\n\n私は数年間日本に住んでいました:\n• 東京のJ.F.オベリン大学で学んだ\n• わずか1年9ヶ月でJLPT N1に合格\n• UNIQLOとZARAで働いた\n• 日本のモンゴル人を支援するトキテンク財団を設立\n\n今、他のモンゴル人が日本語の夢を実現するのを助けています！\n\n日本で勉強したいですか？準備をお手伝いできます！",
+                
+                chat_fallback_response: "お手伝いできること:\n\n• **コース情報** - 1:1、グループ、JLPT対策\n• **料金**の詳細\n• **Beegiiについて** - 私のストーリーと経験\n• **登録**プロセス\n• **JLPT準備**のヒント\n• **連絡先**情報\n\n何を知りたいですか？ 😊",
+            
+                // Navigation
+                nav_reviews: "レビュー",
+                
+                // Reviews Section
+                reviews_title: "生徒のレビュー",
+                reviews_subtitle: "私と一緒に学んだ生徒たちの声",
+                review1_caption: "素晴らしい先生です！",
+                review2_caption: "最高の日本語レッスン！",
+                review3_caption: "強くお勧めします！",
+            }
+        };
+
+        // Language Switcher
+        let currentLang = localStorage.getItem('preferredLanguage') || 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Update HTML lang attribute for SEO
+            document.documentElement.lang = lang === 'mn' ? 'mn-MN' : lang === 'jp' ? 'ja' : 'en';
+            
+            // Update initial chat message if chat is visible
+            const initialMessage = document.querySelector('.message.bot[data-translate="chat_initial"]');
+            if (initialMessage && translations[lang].chat_initial) {
+                initialMessage.textContent = translations[lang].chat_initial;
+            }
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Update HTML lang attribute for SEO
+            document.documentElement.lang = lang === 'mn' ? 'mn-MN' : lang === 'jp' ? 'ja' : 'en';
+        }
+
+        // Initialize language switcher
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial language
+            setLanguage(currentLang);
+            
+            // Add click handlers to language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.getAttribute('data-lang');
+                    setLanguage(lang);
+                });
+            });
+        });
+
+        // Chat System
+        function parseMarkdown(text) {
+            return text
+                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.+?)\*/g, '<em>$1</em>')
+                .replace(/\n- /g, '\n• ')
+                .replace(/\n/g, '<br>');
+        }
+
+        function generateResponse(query) {
+            const lowerQuery = query.toLowerCase();
+            const lang = currentLang; // Use the current selected language
+
+            if (lowerQuery.includes('course') || lowerQuery.includes('class') || lowerQuery.includes('lesson') || 
+                lowerQuery.includes('хичээл') || lowerQuery.includes('コース')) {
+                return translations[lang].chat_courses_response;
+            }
+
+            if (lowerQuery.includes('price') || lowerQuery.includes('cost') || lowerQuery.includes('fee') || 
+                lowerQuery.includes('үнэ') || lowerQuery.includes('料金')) {
+                return translations[lang].chat_price_response;
+            }
+
+            if (lowerQuery.includes('jlpt') || lowerQuery.includes('n1') || lowerQuery.includes('n2') || 
+                lowerQuery.includes('test') || lowerQuery.includes('шалгалт') || lowerQuery.includes('試験')) {
+                return translations[lang].chat_jlpt_response;
+            }
+
+            if (lowerQuery.includes('about') || lowerQuery.includes('who') || lowerQuery.includes('beegii') || 
+                lowerQuery.includes('тухай') || lowerQuery.includes('について')) {
+                return translations[lang].chat_about_response;
+            }
+
+            if (lowerQuery.includes('enroll') || lowerQuery.includes('start') || lowerQuery.includes('join') || 
+                lowerQuery.includes('sign up') || lowerQuery.includes('бүртгүүлэх') || lowerQuery.includes('登録')) {
+                return translations[lang].chat_enroll_response;
+            }
+
+            if (lowerQuery.includes('experience') || lowerQuery.includes('background') || lowerQuery.includes('work') || 
+                lowerQuery.includes('туршлага') || lowerQuery.includes('経験')) {
+                return translations[lang].chat_experience_response;
+            }
+
+            if (lowerQuery.includes('youtube') || lowerQuery.includes('video') || lowerQuery.includes('content') || 
+                lowerQuery.includes('видео') || lowerQuery.includes('ビデオ')) {
+                return translations[lang].chat_youtube_response;
+            }
+
+            if (lowerQuery.includes('contact') || lowerQuery.includes('email') || lowerQuery.includes('phone') || 
+                lowerQuery.includes('холбоо') || lowerQuery.includes('連絡')) {
+                return translations[lang].chat_contact_response;
+            }
+
+            if (lowerQuery.includes('mongolian') || lowerQuery.includes('mongolia') || lowerQuery.includes('монгол')) {
+                return translations[lang].chat_mongolian_response;
+            }
+
+            if (lowerQuery.includes('japan') || lowerQuery.includes('tokyo') || lowerQuery.includes('япон') || 
+                lowerQuery.includes('日本')) {
+                return translations[lang].chat_japan_response;
+            }
+
+            // Fallback
+            return translations[lang].chat_fallback_response;
+        }
+
+        // Chat UI
+        const chatBubble = document.getElementById('chatBubble');
+        const chatBox = document.getElementById('chatBox');
+        const closeChat = document.getElementById('closeChat');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const quickQuestions = document.getElementById('quickQuestions');
+
+        function openChat() {
+            chatBox.classList.add('open');
+            chatInput.focus();
+        }
+
+        chatBubble.addEventListener('click', openChat);
+
+        closeChat.addEventListener('click', () => {
+            chatBox.classList.remove('open');
+        });
+
+        function addMessage(text, isBot = false) {
+            const message = document.createElement('div');
+            message.className = `message ${isBot ? 'bot' : 'user'}`;
+            
+            if (isBot) {
+                message.innerHTML = parseMarkdown(text);
+            } else {
+                message.textContent = text;
+            }
+            
+            chatMessages.appendChild(message);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function addBotMessageWithDelay(text, delay = 1000) {
+            typingIndicator.classList.add('active');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            setTimeout(() => {
+                typingIndicator.classList.remove('active');
+                addMessage(text, true);
+            }, delay);
+        }
+
+        function handleUserMessage(text) {
+            if (!text.trim()) return;
+            
+            addMessage(text, false);
+            chatInput.value = '';
+            
+            const response = generateResponse(text);
+            addBotMessageWithDelay(response, 800);
+        }
+
+        chatSend.addEventListener('click', () => {
+            handleUserMessage(chatInput.value);
+        });
+
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleUserMessage(chatInput.value);
+            }
+        });
+
+        quickQuestions.addEventListener('click', (e) => {
+            if (e.target.classList.contains('quick-btn')) {
+                const question = e.target.getAttribute('data-question');
+                handleUserMessage(question);
+            }
+        });
+
+        // Sakura Animation
+        function createSakura() {
+            const sakura = document.createElement('div');
+            sakura.className = 'sakura';
+            sakura.style.left = Math.random() * 100 + 'vw';
+            sakura.style.animationDuration = (Math.random() * 3 + 7) + 's';
+            sakura.style.animationDelay = Math.random() * 5 + 's';
+            document.getElementById('sakuraContainer').appendChild(sakura);
+
+            setTimeout(() => {
+                sakura.remove();
+            }, 15000);
+        }
+
+        // Create sakura petals periodically
+        setInterval(createSakura, 800);
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createSakura, i * 300);
+        }
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animated Counters
+        function animateCounter(element, target, duration = 2000) {
+            if (!element || !target) return;
+            
+            let current = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = Math.round(target);
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Trigger counters when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+                        const target = parseInt(el.getAttribute('data-target'));
+                        animateCounter(el, target);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('open');
+            mobileMenuBtn.textContent = nav.classList.contains('open') ? '✕' : '☰';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('open');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
