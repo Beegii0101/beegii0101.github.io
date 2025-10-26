@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beegii Chuuki - Japanese Language Teacher</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./logo.png">
+    <link rel="shortcut icon" href="./favicon.ico">
+
     <!-- SEO -->
     <meta name="description" content="Learn Japanese with Beegii - JLPT N1 certified teacher from Mongolia. Online courses N5-N1, personalized lessons, and cultural insights.">
     <meta name="keywords" content="Japanese Language, JLPT, Japanese Teacher, Mongolia, Online Japanese Course, N5, N1, Beegii Chuuki">
@@ -19,6 +25,30 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@300;400;600&display=swap');
+        @import url('https://fonts.cdnfonts.com/css/more-sugar');
+
+        /* Main More Sugar font */
+        @font-face {
+            font-family: 'More Sugar';
+            font-style: normal;
+            font-weight: 400;
+            src: url('https://fonts.cdnfonts.com/s/96698/MoreSugar-8MnBn.woff') format('woff');
+        }
+
+        /* Optional variants (if you want extras or thin styles) */
+        @font-face {
+            font-family: 'More Sugar Extras';
+            font-style: normal;
+            font-weight: 400;
+            src: url('https://fonts.cdnfonts.com/s/96698/MoreSugarExtras-RpO8E.woff') format('woff');
+        }
+
+        @font-face {
+            font-family: 'More Sugar Thin';
+            font-style: normal;
+            font-weight: 400;
+            src: url('https://fonts.cdnfonts.com/s/96698/MoreSugarThin-rgEwB.woff') format('woff');
+        }
 
         * {
             margin: 0;
@@ -108,7 +138,7 @@
         }
 
         .logo {
-            font-family: 'Noto Serif JP', serif;
+            font-family: 'More Sugar', cursive;
             font-size: 28px;
             font-weight: 600;
             background: linear-gradient(135deg, #FF69B4, #9D50BB);
@@ -145,6 +175,44 @@
 
         nav a:hover::after {
             width: 100%;
+        }
+
+        .logo {
+            font-family: 'More Sugar', cursive;
+            font-size: 28px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #FF69B4, #9D50BB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 183, 197, 0.5);
+            box-shadow: 0 3px 15px rgba(255, 105, 180, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-image {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        @media (max-width: 768px) {
+            .logo-image {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .logo {
+                font-size: 24px;
+            }
         }
 
         /* Hero Section */
@@ -1119,7 +1187,9 @@
 
     <!-- Header -->
     <header id="header">
-        <div class="logo">Beegii Chuuki</div>
+        <div class="logo">
+            <span>beegii chuuki</span>
+        </div>
         <nav id="nav">
             <ul>
                 <li><a href="#home" data-translate="nav_home">Home</a></li>
@@ -2113,34 +2183,6 @@
             if (initialMessage && translations[lang].chat_initial) {
                 initialMessage.textContent = translations[lang].chat_initial;
             }
-        }
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            localStorage.setItem('preferredLanguage', lang);
-            
-            // Update all elements with data-translate attribute
-            document.querySelectorAll('[data-translate]').forEach(element => {
-                const key = element.getAttribute('data-translate');
-                if (translations[lang] && translations[lang][key]) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.placeholder = translations[lang][key];
-                    } else {
-                        element.textContent = translations[lang][key];
-                    }
-                }
-            });
-            
-            // Update active button
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('active');
-                }
-            });
-            
-            // Update HTML lang attribute for SEO
-            document.documentElement.lang = lang === 'mn' ? 'mn-MN' : lang === 'jp' ? 'ja' : 'en';
         }
 
         // Initialize language switcher
