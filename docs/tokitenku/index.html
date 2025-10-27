@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokitenku Foundation | Building Future Through Education & Culture</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg" sizes="32x32" href="./tf.jpg">
+    <link rel="icon" type="image/jpg" sizes="16x16" href="./tf.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="./tf.jpg">
+
+    <!-- SEO -->
+    <meta name="description" content="Tokitenku Foundation - Continuing the legacy of sumo wrestler Tokitenku Yoshiaki by empowering Mongolian youth through education and culture.">
+    <meta name="keywords" content="Tokitenku Foundation, Mongolia, Education, Culture, NGO, Tokitenku Yoshiaki, Sumo">
+    <meta name="author" content="Tokitenku Foundation">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Mongolian:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0c3563;
+            --light-gray: #f7f7f7;
+            --gold: #FFD700;
+            --sky-blue: #4A90E2;
+            --deep-blue: #062244;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Mongolian', sans-serif;
+            background: linear-gradient(135deg, #0c3563 0%, #4A90E2 100%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Stars Animation */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle linear infinite;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+        }
+
+        .star.large {
+            width: 5px;
+            height: 5px;
+            animation: riseStar linear infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes riseStar {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(12, 53, 99, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(12, 53, 99, 0.98);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--light-gray);
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-image {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .logo-image {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--light-gray);
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lang-btn.active {
+            background: var(--gold);
+            color: var(--primary-blue);
+            box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 120px 60px 60px;
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 64px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 28px;
+            color: var(--light-gray);
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 100px 60px;
+            background: rgba(255, 255, 255, 0.95);
+            position: relative;
+            z-index: 2;
+        }
+
+        .mission-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 24px;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 60px;
+            font-style: italic;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .mission-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(12, 53, 99, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--gold);
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(12, 53, 99, 0.2);
+        }
+
+        .mission-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        .mission-card h3 {
+            font-size: 24px;
+            color: var(--primary-blue);
+            margin-bottom: 16px;
+        }
+
+        .mission-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 60px;
+            background: linear-gradient(135deg, rgba(12, 53, 99, 0.05) 0%, rgba(74, 144, 226, 0.05) 100%);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(12, 53, 99, 0.3);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text h2 {
+            font-size: 48px;
+            color: var(--primary-blue);
+            margin-bottom: 24px;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-text strong {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        /* Events Section */
+        .events {
+            padding: 100px 60px;
+            background: rgba(255, 255, 255, 0.95);
+            position: relative;
+            z-index: 2;
+        }
+
+        .events-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event-card {
+            background: linear-gradient(135deg, var(--primary-blue), var(--sky-blue));
+            border-radius: 25px;
+            padding: 50px;
+            color: white;
+            box-shadow: 0 20px 60px rgba(12, 53, 99, 0.3);
+            margin-top: 40px;
+        }
+
+        .event-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--primary-blue);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .event-card h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .event-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .event-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .event-detail-icon {
+            font-size: 24px;
+        }
+
+        .speakers {
+            margin: 30px 0;
+        }
+
+        .speakers h4 {
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .speaker {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .event-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .highlight {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Impact Stats */
+        .impact {
+            padding: 100px 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--deep-blue));
+            position: relative;
+            z-index: 2;
+        }
+
+        .impact-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .impact-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .impact-number {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .impact-label {
+            font-size: 16px;
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Get Involved */
+        .get-involved {
+            padding: 100px 60px;
+            background: rgba(255, 255, 255, 0.95);
+            position: relative;
+            z-index: 2;
+        }
+
+        .involved-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .involved-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .involved-card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(12, 53, 99, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .involved-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(12, 53, 99, 0.2);
+        }
+
+        .involved-card h3 {
+            font-size: 28px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .involved-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 60px 30px;
+            background: var(--deep-blue);
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 30px;
+            }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: rgba(12, 53, 99, 0.98);
+                backdrop-filter: blur(30px);
+                padding: 30px;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            nav.open {
+                transform: translateY(0);
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .hero, .mission, .about, .events, .impact, .get-involved {
+                padding: 60px 20px;
+            }
+
+            .event-card {
+                padding: 30px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Animation -->
+    <div class="stars-container" id="starsContainer"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="logo">
+            <img src="./tf.jpg" alt="Tokitenku Foundation Logo" class="logo-image">
+            <span data-translate="nav_logo">TOKITENKU FOUNDATION</span>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="#home" data-translate="nav_home">Home</a></li>
+                <li><a href="#mission" data-translate="nav_mission">Mission</a></li>
+                <li><a href="#about" data-translate="nav_about">About</a></li>
+                <li><a href="#events" data-translate="nav_events">Events</a></li>
+                <li><a href="#involved" data-translate="nav_involved">Get Involved</a></li>
+            </ul>
+        </nav>
+        <div class="language-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="mn">MN</button>
+            <button class="lang-btn" data-lang="jp">日本</button>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 data-translate="hero_title">Building Future Through Education & Culture</h1>
+            <div class="hero-subtitle" data-translate="hero_subtitle">Tokitenku Foundation</div>
+            <p class="hero-description" data-translate="hero_description">
+                Continuing the legacy of professional sumo wrestler Tokitenku Yoshiaki, we empower Mongolian youth through education and culture, expanding their knowledge, character, and opportunities.
+            </p>
+            <div class="hero-buttons">
+                <a href="#involved" class="btn btn-primary" data-translate="hero_btn_primary">Support Our Mission</a>
+                <a href="#about" class="btn btn-secondary" data-translate="hero_btn_secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="mission-content">
+            <h2 class="section-title scroll-reveal" data-translate="mission_title">Our Mission</h2>
+            <p class="section-subtitle scroll-reveal" data-translate="mission_subtitle">"Creating the future through education and culture"</p>
+            
+            <div class="mission-grid">
+                <div class="mission-card scroll-reveal">
+                    <div class="mission-icon">📚</div>
+                    <h3 data-translate="mission_card1_title">Education</h3>
+                    <p data-translate="mission_card1_desc">We provide educational opportunities and resources to help young Mongolians achieve their academic goals and develop critical thinking skills.</p>
+                </div>
+
+                <div class="mission-card scroll-reveal">
+                    <div class="mission-icon">🎭</div>
+                    <h3 data-translate="mission_card2_title">Culture</h3>
+                    <p data-translate="mission_card2_desc">We preserve and promote Mongolian culture while fostering cross-cultural understanding between Mongolia and Japan.</p>
+                </div>
+
+                <div class="mission-card scroll-reveal">
+                    <div class="mission-icon">🌟</div>
+                    <h3 data-translate="mission_card3_title">Empowerment</h3>
+                    <p data-translate="mission_card3_desc">We empower the next generation by expanding their knowledge, building character, and creating life-changing opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Tokitenku Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-image scroll-reveal">
+                <!-- Replace with actual image of Tokitenku -->
+                <img src="./tk.jpg" alt="Tokitenku Yoshiaki">
+            </div>
+            <div class="about-text scroll-reveal">
+                <h2 data-translate="about_title">About Tokitenku Yoshiaki</h2>
+                <p data-translate="about_p1">
+                    <strong>Tokitenku Yoshiaki (時天空 慶晃)</strong>, born as Ariunbuyan Khuchitbaatar, was a professional sumo wrestler from Mongolia who competed in the top division of sumo wrestling.
+                </p>
+                <p data-translate="about_p2">
+                    Throughout his career, Tokitenku demonstrated exceptional dedication, discipline, and cultural bridge-building between Mongolia and Japan. His legacy extends beyond the sumo ring through his commitment to supporting young Mongolians.
+                </p>
+                <p data-translate="about_p3">
+                    The Tokitenku Foundation was established to honor his memory and continue his mission of empowering Mongolian youth through education, cultural exchange, and community support.
+                </p>
+                <p data-translate="about_p4">
+                    <strong>His values of perseverance, respect, and giving back to the community continue to inspire our work today.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="events-container">
+            <h2 class="section-title scroll-reveal" data-translate="events_title">Upcoming Events</h2>
+            <p class="section-subtitle scroll-reveal" data-translate="events_subtitle">Join our programs and workshops</p>
+
+            <div class="event-card scroll-reveal">
+                <span class="event-badge" data-translate="event_badge">ONLINE EVENT</span>
+                <h3 data-translate="event_title">Financial Management & Global Remote Work Opportunities 💻</h3>
+                
+                <div class="event-details">
+                    <div class="event-detail">
+                        <span class="event-detail-icon">📅</span>
+                        <div>
+                            <strong data-translate="event_date_label">Date:</strong>
+                            <span data-translate="event_date">September 27, 2025</span>
+                        </div>
+                    </div>
+                    <div class="event-detail">
+                        <span class="event-detail-icon">⏰</span>
+                        <div>
+                            <strong data-translate="event_time_label">Time:</strong>
+                            <span data-translate="event_time">20:00 – 21:30 (Ulaanbaatar Time)</span>
+                        </div>
+                    </div>
+                    <div class="event-detail">
+                        <span class="event-detail-icon">💻</span>
+                        <div>
+                            <strong data-translate="event_platform_label">Platform:</strong>
+                            <span data-translate="event_platform">Google Meet</span>
+                        </div>
+                    </div>
+                    <div class="event-detail">
+                        <span class="event-detail-icon">👥</span>
+                        <div>
+                            <strong data-translate="event_capacity_label">Capacity:</strong>
+                            <span data-translate="event_capacity">First 100 participants</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="speakers">
+                    <h4 data-translate="event_speakers_label">Speakers:</h4>
+                    <div class="speaker">
+                        <strong>💡 20:10–20:40</strong> — <span data-translate="event_speaker1">I. Odonchimeg - Financial content creator and your money guide</span>
+                    </div>
+                    <div class="speaker">
+                        <strong>🌏 20:45–21:15</strong> — <span data-translate="event_speaker2">B. Buyandelger - Digital nomad who worked while traveling 25+ countries, 100+ cities</span>
+                    </div>
+                </div>
+
+                <div class="event-highlights">
+                    <div class="highlight">
+                        <span>✅</span>
+                        <span data-translate="event_highlight1">Work abroad & earn in USD</span>
+                    </div>
+                    <div class="highlight">
+                        <span>✅</span>
+                        <span data-translate="event_highlight2">Remote work experience</span>
+                    </div>
+                    <div class="highlight">
+                        <span>✅</span>
+                        <span data-translate="event_highlight3">Financial management tips</span>
+                    </div>
+                    <div class="highlight">
+                        <span>✅</span>
+                        <span data-translate="event_highlight4">FREE admission ✨</span>
+                    </div>
+                </div>
+
+                <p style="margin-top: 20px; font-size: 14px; opacity: 0.9;">
+                    ⚠️ <span data-translate="event_warning">Limited to 100 participants | Not recorded | Registration link will be sent to your email on 9.26</span>
+                </p>
+
+                <div style="margin-top: 30px;">
+                    <a href="https://forms.gle/TyY6RvgdT8qQ3Neq5" class="btn btn-primary" target="_blank" data-translate="event_register">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="impact">
+        <h2 class="section-title scroll-reveal" style="color: white; text-align: center;" data-translate="impact_title">Our Impact</h2>
+        <p class="section-subtitle scroll-reveal" style="color: rgba(255,255,255,0.8); text-align: center;" data-translate="impact_subtitle">Making a difference in the community</p>
+        
+        <div class="impact-grid">
+            <div class="impact-card scroll-reveal">
+                <div class="impact-number" data-target="500">0</div>
+                <div class="impact-label" data-translate="impact_students">Students Supported</div>
+            </div>
+            <div class="impact-card scroll-reveal">
+                <div class="impact-number" data-target="50">0</div>
+                <div class="impact-label" data-translate="impact_events">Events Organized</div>
+            </div>
+            <div class="impact-card scroll-reveal">
+                <div class="impact-number" data-target="15">0</div>
+                <div class="impact-label" data-translate="impact_scholarships">Scholarships Awarded</div>
+            </div>
+            <div class="impact-card scroll-reveal">
+                <div class="impact-number" data-target="1000">0</div>
+                <div class="impact-label" data-translate="impact_community">Community Members</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved -->
+    <section class="get-involved" id="involved">
+        <div class="involved-content">
+            <h2 class="section-title scroll-reveal" data-translate="involved_title">Get Involved</h2>
+            <p class="section-subtitle scroll-reveal" data-translate="involved_subtitle">Join us in making a difference</p>
+
+            <div class="involved-grid">
+                <div class="involved-card scroll-reveal">
+                    <h3 data-translate="involved_card1_title">Volunteer</h3>
+                    <p data-translate="involved_card1_desc">Share your skills and time to mentor young Mongolians. Help organize events, teach workshops, or provide guidance in your area of expertise.</p>
+                    <a href="#" class="btn btn-secondary" data-translate="involved_card1_btn">Learn More</a>
+                </div>
+
+                <div class="involved-card scroll-reveal">
+                    <h3 data-translate="involved_card2_title">Donate</h3>
+                    <p data-translate="involved_card2_desc">Your financial support helps us provide scholarships, educational resources, and opportunities to students who need them most.</p>
+                    <a href="#" class="btn btn-secondary" data-translate="involved_card2_btn">Support Now</a>
+                </div>
+
+                <div class="involved-card scroll-reveal">
+                    <h3 data-translate="involved_card3_title">Partner</h3>
+                    <p data-translate="involved_card3_desc">Collaborate with us as a corporate partner or educational institution to expand our reach and impact in the community.</p>
+                    <a href="#" class="btn btn-secondary" data-translate="involved_card3_btn">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="footer_about_title">About Us</h3>
+                <p data-translate="footer_about_text">The Tokitenku Foundation honors the legacy of sumo wrestler Tokitenku Yoshiaki by empowering Mongolian youth through education and culture.</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footer_quick_title">Quick Links</h3>
+                <a href="#mission" data-translate="footer_link_mission">Our Mission</a>
+                <a href="#about" data-translate="footer_link_about">About Tokitenku</a>
+                <a href="#events" data-translate="footer_link_events">Events</a>
+                <a href="#involved" data-translate="footer_link_involved">Get Involved</a>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footer_contact_title">Contact</h3>
+                <p>📧 info@tokitenkufoundation.org</p>
+                <p>📱 +976-XXXX-XXXX</p>
+                <p>📍 Ulaanbaatar, Mongolia</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footer_follow_title">Follow Us</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-translate="footer_copyright">© 2025 Tokitenku Foundation. All rights reserved. | In memory of Tokitenku Yoshiaki (時天空 慶晃)</p>
+        </div>
+    </footer>
+
+    <script>
+        // Translations
+        const translations = {
+            en: {
+                nav_logo: "TOKITENKU FOUNDATION",
+                nav_home: "Home",
+                nav_mission: "Mission",
+                nav_about: "About",
+                nav_events: "Events",
+                nav_involved: "Get Involved",
+
+                hero_title: "Building Future Through Education & Culture",
+                hero_subtitle: "Tokitenku Foundation",
+                hero_description: "Continuing the legacy of professional sumo wrestler Tokitenku Yoshiaki, we empower Mongolian youth through education and culture, expanding their knowledge, character, and opportunities.",
+                hero_btn_primary: "Support Our Mission",
+                hero_btn_secondary: "Learn More",
+
+                mission_title: "Our Mission",
+                mission_subtitle: "Creating the future through education and culture",
+                mission_card1_title: "Education",
+                mission_card1_desc: "We provide educational opportunities and resources to help young Mongolians achieve their academic goals and develop critical thinking skills.",
+                mission_card2_title: "Culture",
+                mission_card2_desc: "We preserve and promote Mongolian culture while fostering cross-cultural understanding between Mongolia and Japan.",
+                mission_card3_title: "Empowerment",
+                mission_card3_desc: "We empower the next generation by expanding their knowledge, building character, and creating life-changing opportunities.",
+
+                about_title: "About Tokitenku Yoshiaki",
+                about_p1: "Tokitenku Yoshiaki (時天空 慶晃), born as Ariunbuyan Khuchitbaatar, was a professional sumo wrestler from Mongolia who competed in the top division of sumo wrestling.",
+                about_p2: "Throughout his career, Tokitenku demonstrated exceptional dedication, discipline, and cultural bridge-building between Mongolia and Japan. His legacy extends beyond the sumo ring through his commitment to supporting young Mongolians.",
+                about_p3: "The Tokitenku Foundation was established to honor his memory and continue his mission of empowering Mongolian youth through education, cultural exchange, and community support.",
+                about_p4: "His values of perseverance, respect, and giving back to the community continue to inspire our work today.",
+
+                events_title: "Upcoming Events",
+                events_subtitle: "Join our programs and workshops",
+                event_badge: "ONLINE EVENT",
+                event_title: "Financial Management & Global Remote Work Opportunities 💻",
+                event_date_label: "Date:",
+                event_date: "September 27, 2025",
+                event_time_label: "Time:",
+                event_time: "20:00 – 21:30 (Ulaanbaatar Time)",
+                event_platform_label: "Platform:",
+                event_platform: "Google Meet",
+                event_capacity_label: "Capacity:",
+                event_capacity: "First 100 participants",
+                event_speakers_label: "Speakers:",
+                event_speaker1: "I. Odonchimeg - Financial content creator and your money guide",
+                event_speaker2: "B. Buyandelger - Digital nomad who worked while traveling 25+ countries, 100+ cities",
+                event_highlight1: "Work abroad & earn in USD",
+                event_highlight2: "Remote work experience",
+                event_highlight3: "Financial management tips",
+                event_highlight4: "FREE admission ✨",
+                event_warning: "Limited to 100 participants | Not recorded | Registration link will be sent to your email on 9.26",
+                event_register: "Register Now",
+
+                impact_title: "Our Impact",
+                impact_subtitle: "Making a difference in the community",
+                impact_students: "Students Supported",
+                impact_events: "Events Organized",
+                impact_scholarships: "Scholarships Awarded",
+                impact_community: "Community Members",
+
+                involved_title: "Get Involved",
+                involved_subtitle: "Join us in making a difference",
+                involved_card1_title: "Volunteer",
+                involved_card1_desc: "Share your skills and time to mentor young Mongolians. Help organize events, teach workshops, or provide guidance in your area of expertise.",
+                involved_card1_btn: "Learn More",
+                involved_card2_title: "Donate",
+                involved_card2_desc: "Your financial support helps us provide scholarships, educational resources, and opportunities to students who need them most.",
+                involved_card2_btn: "Support Now",
+                involved_card3_title: "Partner",
+                involved_card3_desc: "Collaborate with us as a corporate partner or educational institution to expand our reach and impact in the community.",
+                involved_card3_btn: "Contact Us",
+
+                footer_about_title: "About Us",
+                footer_about_text: "The Tokitenku Foundation honors the legacy of sumo wrestler Tokitenku Yoshiaki by empowering Mongolian youth through education and culture.",
+                footer_quick_title: "Quick Links",
+                footer_link_mission: "Our Mission",
+                footer_link_about: "About Tokitenku",
+                footer_link_events: "Events",
+                footer_link_involved: "Get Involved",
+                footer_contact_title: "Contact",
+                footer_follow_title: "Follow Us",
+                footer_copyright: "© 2025 Tokitenku Foundation. All rights reserved. | In memory of Tokitenku Yoshiaki (時天空 慶晃)",
+            },
+
+            mn: {
+                nav_logo: "ТОКИТЭНКҮ САН",
+                nav_home: "Нүүр",
+                nav_mission: "Эрхэм зорилго",
+                nav_about: "Тухай",
+                nav_events: "Үйл явдал",
+                nav_involved: "Хамт олох",
+
+                hero_title: "Ирээдүйг боловсрол, соёлоор бүтээе",
+                hero_subtitle: "Токитэнкү сан",
+                hero_description: "Мэргэжлийн сумоч Токитэнкү Ёшиакигийн үйл хэргийг үргэлжлүүлэн, Монголын ирээдүй болсон хүүхэд, залуусыг боловсрол ба соёлоор төлөвшүүлж, тэдний мэдлэг, хүмүүжил, боломжийг өргөжүүлэхийг зорьж байна.",
+                hero_btn_primary: "Тусламж үзүүлэх",
+                hero_btn_secondary: "Дэлгэрэнгүй",
+
+                mission_title: "Бидний эрхэм зорилго",
+                mission_subtitle: "Ирээдүйг боловсрол, соёлоор бүтээе",
+                mission_card1_title: "Боловсрол",
+                mission_card1_desc: "Бид залуу монголчуудад боловсролын боломж, нөөц бололцоо олгож, тэдний эрдэм шинжилгээний зорилгод хүрэх, эх ухааны сэтгэлгээг хөгжүүлэхэд туслана.",
+                mission_card2_title: "Соёл",
+                mission_card2_desc: "Бид Монголын соёлыг хадгалж, сурталчлахын зэрэгцээ Монгол, Японы хоорондын соёлын харилцан ойлголцлыг бүрдүүлнэ.",
+                mission_card3_title: "Хүч чадлаар хангах",
+                mission_card3_desc: "Бид шинэ үеийнхнийг мэдлэг, ур чадвар, боломжоор хангаж, тэдний хүмүүжил, ирээдүйг төлөвшүүлнэ.",
+
+                about_title: "Токитэнкү Ёшиакигийн тухай",
+                about_p1: "Токитэнкү Ёшиаки (時天空 慶晃) буюу Ариунбуян Хүчитбаатар бол Монголоос гаралтай мэргэжлийн сумочин байсан.",
+                about_p2: "Ажлын гараагаараа Токитэнкү онцгой зоригтой, сахилга баттай, Монгол, Японы хоорондын соёлын гүүр болж чадсан. Түүний өв залгамжлал зөвхөн сумогийн талбайгаас гадна залуу монголчуудыг дэмжих эрхэм зорилгоороо үргэлжилсээр байна.",
+                about_p3: "Токитэнкү санг түүний дурсгалд зориулан үүсгэн байгуулж, монгол залуучуудыг боловсрол, соёлын солилцоо, нийгмийн дэмжлэгээр төлөвшүүлэх үйл хэргийг нь үргэлжлүүлж байна.",
+                about_p4: "Түүний хатуу зүтгэл, хүндэтгэл, нийгэмдээ буцаан өгөх үнэт зүйлс өнөөдөр бидний ажилд урам зориг өгч байна.",
+
+                events_title: "Удахгүй болох үйл явдал",
+                events_subtitle: "Бидний хөтөлбөр, семинарт нэгдээрэй",
+                event_badge: "ОНЛАЙН ЭВЕНТ",
+                event_title: "Санхүүгээ зөв удирдах ухаан, Дэлхийгээр аялангаа ажиллах боломж 💻",
+                event_date_label: "Огноо:",
+                event_date: "2025.09.27",
+                event_time_label: "Хугацаа:",
+                event_time: "20:00 – 21:30 (Улаанбаатарын цагаар)",
+                event_platform_label: "Платформ:",
+                event_platform: "Google Meet",
+                event_capacity_label: "Оролцогч:",
+                event_capacity: "Зөвхөн эхний 100",
+                event_speakers_label: "Илтгэгчид:",
+                event_speaker1: "И. Одончимэг - Санхүүгийн зөвлөгөө өгдөг контент бүтээгч, таны санхүүгийн хөтөч",
+                event_speaker2: "Б. Буяндэлгэр - Дэлхийн 25 орон, 100+ хотоор аялангаа ажилласан дижитал нүүдэлчин",
+                event_highlight1: "Гадаадад ажиллангаа аялах, USD цалинжих",
+                event_highlight2: "Алсын ажлын бодит туршлага",
+                event_highlight3: "Санхүүгээ зөв удирдах зөвлөгөө",
+                event_highlight4: "Үнэ төлбөргүй ✨",
+                event_warning: "Зөвхөн 100 хүн | Видео хадгалагдахгүй | Линк 9.26-нд имэйлээр очно",
+                event_register: "Бүртгүүлэх",
+
+                impact_title: "Бидний үр дүн",
+                impact_subtitle: "Нийгэмд өөрчлөлт авчирч байна",
+                impact_students: "Дэмжигдсэн оюутан",
+                impact_events: "Зохион байгуулсан арга хэмжээ",
+                impact_scholarships: "Олгосон тэтгэлэг",
+                impact_community: "Нийгэмлэгийн гишүүд",
+
+                involved_title: "Хамт олох",
+                involved_subtitle: "Өөрчлөлт авчрахад нэгдээрэй",
+                involved_card1_title: "Сайн дурын ажилтан",
+                involved_card1_desc: "Өөрийн ур чадвар, цагаа зориулж залуу монголчуудад зөвлөгөө өг. Арга хэмжээ зохион байгуулах, семинар зохиох эсвэл мэргэжлийнхээ дагуу удирдамж өгөөрэй.",
+                involved_card1_btn: "Дэлгэрэнгүй",
+                involved_card2_title: "Хандив",
+                involved_card2_desc: "Таны санхүүгийн дэмжлэг тэтгэлэг, боловсролын нөөц, боломжийг хамгийн их хэрэгцээтэй оюутнуудад хүргэхэд тусална.",
+                involved_card2_btn: "Дэмжлэг үзүүлэх",
+                involved_card3_title: "Түншлэл",
+                involved_card3_desc: "Байгууллага, боловсролын байгууллагын түншээр бидэнтэй хамтран ажиллаж, нөлөөгөө өргөжүүлээрэй.",
+                involved_card3_btn: "Холбогдох",
+
+                footer_about_title: "Бидний тухай",
+                footer_about_text: "Токитэнкү сан нь сумочин Токитэнкү Ёшиакигийн өвийг хүндэтгэн монгол залуучуудыг боловсрол, соёлоор төлөвшүүлнэ.",
+                footer_quick_title: "Холбоосууд",
+                footer_link_mission: "Эрхэм зорилго",
+                footer_link_about: "Токитэнкүгийн тухай",
+                footer_link_events: "Үйл явдал",
+                footer_link_involved: "Хамт олох",
+                footer_contact_title: "Холбоо барих",
+                footer_follow_title: "Биднийг дагаарай",
+                footer_copyright: "© 2025 Токитэнкү сан. Бүх эрх хуулиар хамгаалагдсан. | Токитэнкү Ёшиакигийн дурсгалд (時天空 慶晃)",
+            },
+
+            jp: {
+                nav_logo: "時天空財団",
+                nav_home: "ホーム",
+                nav_mission: "使命",
+                nav_about: "概要",
+                nav_events: "イベント",
+                nav_involved: "参加する",
+
+                hero_title: "教育と文化で未来を創る",
+                hero_subtitle: "時天空財団",
+                hero_description: "プロ力士・時天空慶晃の遺志を継ぎ、教育と文化を通じてモンゴルの若者を育成し、彼らの知識、人格、機会を拡大することを目指しています。",
+                hero_btn_primary: "ミッションを支援",
+                hero_btn_secondary: "詳しく見る",
+
+                mission_title: "私たちの使命",
+                mission_subtitle: "教育と文化で未来を創る",
+                mission_card1_title: "教育",
+                mission_card1_desc: "若いモンゴル人が学業目標を達成し、批判的思考力を育むための教育機会とリソースを提供します。",
+                mission_card2_title: "文化",
+                mission_card2_desc: "モンゴル文化を保存・促進し、モンゴルと日本の異文化理解を育みます。",
+                mission_card3_title: "エンパワーメント",
+                mission_card3_desc: "知識を拡大し、人格を形成し、人生を変える機会を創出することで、次世代を力づけます。",
+
+                about_title: "時天空慶晃について",
+                about_p1: "時天空慶晃（ときてんくう よしあき）は、本名アリウンブヤン・フチトバートル、モンゴル出身のプロ力士で、大相撲の最高位で活躍しました。",
+                about_p2: "時天空は、そのキャリアを通じて、並外れた献身、規律、そしてモンゴルと日本の文化的架け橋としての役割を示しました。彼の遺産は、若いモンゴル人を支援するという使命を通じて、相撲の土俵を超えて広がっています。",
+                about_p3: "時天空財団は、彼の記憶を称え、教育、文化交流、コミュニティ支援を通じてモンゴルの若者を力づけるという彼の使命を継続するために設立されました。",
+                about_p4: "忍耐、敬意、コミュニティへの還元という彼の価値観は、今日も私たちの活動に刺激を与え続けています。",
+
+                events_title: "今後のイベント",
+                events_subtitle: "プログラムとワークショップに参加",
+                event_badge: "オンラインイベント",
+                event_title: "財務管理とグローバルリモートワークの機会 💻",
+                event_date_label: "日付:",
+                event_date: "2025年9月27日",
+                event_time_label: "時間:",
+                event_time: "20:00 – 21:30 (ウランバートル時間)",
+                event_platform_label: "プラットフォーム:",
+                event_platform: "Google Meet",
+                event_capacity_label: "定員:",
+                event_capacity: "先着100名",
+                event_speakers_label: "講演者:",
+                event_speaker1: "I. オドンチメグ - 金融コンテンツクリエイター、あなたのマネーガイド",
+                event_speaker2: "B. ブヤンデルゲル - 25カ国以上、100以上の都市を旅しながら働いたデジタルノマド",
+                event_highlight1: "海外で働きUSDで稼ぐ",
+                event_highlight2: "リモートワークの実体験",
+                event_highlight3: "財務管理のヒント",
+                event_highlight4: "無料参加 ✨",
+                event_warning: "100名限定 | 録画なし | 登録リンクは9.26にメールで送信",
+                event_register: "今すぐ登録",
+
+                impact_title: "私たちの影響",
+                impact_subtitle: "コミュニティに変化をもたらす",
+                impact_students: "支援した学生",
+                impact_events: "開催イベント",
+                impact_scholarships: "授与した奨学金",
+                impact_community: "コミュニティメンバー",
+
+                involved_title: "参加する",
+                involved_subtitle: "変化をもたらすために参加",
+                involved_card1_title: "ボランティア",
+                involved_card1_desc: "あなたのスキルと時間を共有して、若いモンゴル人を指導してください。イベントの企画、ワークショップの開催、または専門分野でのガイダンスを提供してください。",
+                involved_card1_btn: "詳しく見る",
+                involved_card2_title: "寄付",
+                involved_card2_desc: "あなたの財政的支援は、最も必要としている学生に奨学金、教育リソース、機会を提供するのに役立ちます。",
+                involved_card2_btn: "今すぐ支援",
+                involved_card3_title: "パートナー",
+                involved_card3_desc: "企業パートナーまたは教育機関として協力し、コミュニティでの私たちのリーチと影響を拡大してください。",
+                involved_card3_btn: "お問い合わせ",
+
+                footer_about_title: "私たちについて",
+                footer_about_text: "時天空財団は、力士・時天空慶晃の遺志を継ぎ、教育と文化を通じてモンゴルの若者を力づけます。",
+                footer_quick_title: "クイックリンク",
+                footer_link_mission: "使命",
+                footer_link_about: "時天空について",
+                footer_link_events: "イベント",
+                footer_link_involved: "参加する",
+                footer_contact_title: "お問い合わせ",
+                footer_follow_title: "フォローする",
+                footer_copyright: "© 2025 時天空財団. 全著作権所有. | 時天空慶晃を偲んで",
+            }
+        };
+
+        // Language Switcher
+        let currentLang = localStorage.getItem('preferredLanguage') || 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('preferredLanguage', lang);
+            
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            document.documentElement.lang = lang === 'mn' ? 'mn-MN' : lang === 'jp' ? 'ja' : 'en';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.getAttribute('data-lang');
+                    setLanguage(lang);
+                });
+            });
+        });
+
+        // Stars Animation
+        function createStar() {
+            const star = document.createElement('div');
+            star.className = Math.random() > 0.7 ? 'star large' : 'star';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            star.style.animationDelay = Math.random() * 2 + 's';
+            document.getElementById('starsContainer').appendChild(star);
+
+            setTimeout(() => {
+                star.remove();
+            }, 8000);
+        }
+
+        setInterval(createStar, 300);
+        for (let i = 0; i < 50; i++) {
+            setTimeout(createStar, i * 100);
+        }
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animated Counters
+        function animateCounter(element, target, duration = 2000) {
+            if (!element || !target) return;
+            
+            let current = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target === 1000 ? '1K+' : Math.round(target) + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        const impactObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.impact-number[data-target]').forEach(el => {
+                        const target = parseInt(el.getAttribute('data-target'));
+                        animateCounter(el, target);
+                    });
+                    impactObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const impactSection = document.querySelector('.impact');
+        if (impactSection) {
+            impactObserver.observe(impactSection);
+        }
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('open');
+            mobileMenuBtn.textContent = nav.classList.contains('open') ? '✕' : '☰';
+        });
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('open');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
