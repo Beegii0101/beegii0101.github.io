@@ -359,6 +359,18 @@
             }
         }
 
+        .btn-disabled {
+            background: #ccc;
+            color: #706f6f;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .btn-disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
         /* Stats Section */
         .stats {
             padding: 80px 60px;
@@ -433,6 +445,41 @@
             color: #666;
             margin-bottom: 60px;
             font-family: 'Noto Serif JP', serif;
+        }
+
+        /* Featured Video Section */
+        .featured-video {
+            padding: 100px 60px;
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+        }
+
+        .video-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .featured-video {
+                padding: 60px 20px;
+            }
         }
 
         .courses-grid {
@@ -604,8 +651,27 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(5, 1fr);
             gap: 30px;
+        }
+
+        @media (max-width: 1200px) {
+            .social-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .social-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
         }
 
         .social-card {
@@ -1253,6 +1319,22 @@
         </div>
     </section>
 
+    <!-- Featured Video Section -->
+    <section class="featured-video">
+        <h2 class="section-title scroll-reveal" data-translate="video_title">Featured Video</h2>
+        <!-- <p class="section-subtitle scroll-reveal" data-translate="video_subtitle">My Japanese Learning Journey</p> -->
+        <div class="video-container scroll-reveal">
+            <iframe 
+                src="https://www.youtube-nocookie.com/embed/YGNOso0LXjo?rel=0&modestbranding=1" 
+                title="Beegii Chuuki Video" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+    
     <!-- Courses Section -->
     <section class="courses" id="courses">
         <h2 class="section-title scroll-reveal" data-translate="courses_title">My Courses</h2>
@@ -1270,7 +1352,8 @@
                     <li data-translate="course1_feature3">JLPT preparation (N5-N1)</li>
                     <li data-translate="course1_feature4">Speaking & listening focus</li>
                 </ul>
-                <a href="https://forms.gle/A5rntc9shtFzUBCX6" class="btn btn-primary" target="_blank" data-translate="course1_btn">Enroll Now</a>
+                <!-- <a href="https://forms.gle/A5rntc9shtFzUBCX6" class="btn btn-primary" target="_blank" data-translate="course1_btn">Enroll Now</a> -->
+                <button class="btn btn-disabled" disabled data-translate="course_unavailable">Unavailable until 12/25</button>
             </div>
 
             <!-- Course 2: Group Class -->
@@ -1284,19 +1367,24 @@
                     <li data-translate="course2_feature3">Cultural discussions</li>
                     <li data-translate="course2_feature4">Affordable pricing</li>
                 </ul>
-                <a href="https://forms.gle/mJuo87bF44z4T5gU6" class="btn btn-primary" target="_blank" data-translate="course2_btn">Join Group</a>
+                <!-- <a href="https://forms.gle/mJuo87bF44z4T5gU6" class="btn btn-primary" target="_blank" data-translate="course2_btn">Join Group</a> -->
+                <button class="btn btn-disabled" disabled data-translate="course_unavailable">Unavailable until 12/25</button>
             </div>
 
             <!-- Course 3: Mock Test -->
             <div class="course-card scroll-reveal">
                 <div class="course-icon">📝</div>
-                <h3 class="course-title" data-translate="course3_title">Mock Test Class</h3>
+                <h3 class="course-title" data-translate="course3_title">JLPT Prep Class</h3>
                 <p class="course-desc" data-translate="course3_desc">Practice with real JLPT-style tests and get detailed feedback to boost your exam confidence.</p>
                 <ul class="course-features">
-                    <li data-translate="course3_feature1">All levels N5-N2</li>
+                    <!-- <li data-translate="course3_feature1">All levels N5-N2</li>
                     <li data-translate="course3_feature2">Detailed feedback</li>
                     <li data-translate="course3_feature3">Exam strategies</li>
-                    <li data-translate="course3_feature4">Time management tips</li>
+                    <li data-translate="course3_feature4">Time management tips</li> -->
+                    <li data-translate="course3_feature1">Nov 3 – Dec 5, 2025 | 2 sessions/week (1h 30m)</li>
+                    <li data-translate="course3_feature2">N5 / N4 / N3 / N2 | Live on Google Meet</li>
+                    <li data-translate="course3_feature3">Reading, vocab, grammar & mock tests</li>
+                    <li data-translate="course3_feature4">Fee: 120,000 MNT</li>
                 </ul>
                 <a href="#" class="btn btn-primary" onclick="openChat(); return false;" data-translate="course3_btn">Learn More</a>
             </div>
@@ -1304,13 +1392,17 @@
             <!-- Course 4: Kanji Class -->
             <div class="course-card scroll-reveal">
                 <div class="course-icon">✍️</div>
-                <h3 class="course-title" data-translate="course4_title">Kanji Class</h3>
-                <p class="course-desc" data-translate="course4_desc">Master Japanese characters with systematic learning methods and memory techniques.</p>
+                <h3 class="course-title" data-translate="course4_title">Kanji Foundations Morning Class</h3>
+                <p class="course-desc" data-translate="course4_desc">Learn 220 kanji (all N5 + half of N4) with clear explanations and examples.</p>
                 <ul class="course-features">
-                    <li data-translate="course4_feature1">Structured curriculum</li>
+                    <!-- <li data-translate="course4_feature1">Structured curriculum</li>
                     <li data-translate="course4_feature2">Memory techniques</li>
                     <li data-translate="course4_feature3">Writing practice</li>
-                    <li data-translate="course4_feature4">Reading exercises</li>
+                    <li data-translate="course4_feature4">Reading exercises</li> -->
+                    <li data-translate="course4_feature1">Nov 3 – Dec 3, 2025 | Tue–Fri mornings</li>
+                    <li data-translate="course4_feature2">05:00 Mongolia / 06:00 Japan | 1h/session</li>
+                    <li data-translate="course4_feature3">Google Meet, recordings available</li>
+                    <li data-translate="course4_feature4">Fee: 70,000 MNT</li>
                 </ul>
                 <a href="#" class="btn btn-primary" onclick="openChat(); return false;" data-translate="course4_btn">Learn More</a>
             </div>
@@ -1752,20 +1844,32 @@
                 course2_feature4: "Affordable pricing",
                 course2_btn: "Join Group",
                 
-                course3_title: "Mock Test Class",
-                course3_desc: "Practice with real JLPT-style tests and get detailed feedback to boost your exam confidence.",
-                course3_feature1: "All levels N5-N2",
-                course3_feature2: "Detailed feedback",
-                course3_feature3: "Exam strategies",
-                course3_feature4: "Time management tips",
+                // course3_title: "Mock Test Class",
+                // course3_desc: "Practice with real JLPT-style tests and get detailed feedback to boost your exam confidence.",
+                // course3_feature1: "All levels N5-N2",
+                // course3_feature2: "Detailed feedback",
+                // course3_feature3: "Exam strategies",
+                // course3_feature4: "Time management tips",
+                course3_title: "JLPT Prep Class",
+                course3_desc: "Practice JLPT-style tests with live sessions and detailed feedback.",
+                course3_feature1: "Nov 3 – Dec 5, 2025 | 2 sessions/week (1h 30m)",
+                course3_feature2: "N5 / N4 / N3 / N2 | Live on Google Meet",
+                course3_feature3: "Reading, vocab, grammar & mock tests",
+                course3_feature4: "Fee: 120,000 MNT",
                 course3_btn: "Learn More",
                 
-                course4_title: "Kanji Class",
-                course4_desc: "Master Japanese characters with systematic learning methods and memory techniques.",
-                course4_feature1: "Structured curriculum",
-                course4_feature2: "Memory techniques",
-                course4_feature3: "Writing practice",
-                course4_feature4: "Reading exercises",
+                // course4_title: "Kanji Class",
+                // course4_desc: "Master Japanese characters with systematic learning methods and memory techniques.",
+                // course4_feature1: "Structured curriculum",
+                // course4_feature2: "Memory techniques",
+                // course4_feature3: "Writing practice",
+                // course4_feature4: "Reading exercises",
+                course4_title: "Kanji Foundations Morning Class",
+                course4_desc: "Learn 220 kanji (all N5 + half of N4) with clear explanations and examples.",
+                course4_feature1: "Nov 3 – Dec 3, 2025 | Tue–Fri mornings",
+                course4_feature2: "05:00 Mongolia / 06:00 Japan | 1h/session",
+                course4_feature3: "Google Meet, recordings available",
+                course4_feature4: "Fee: 70,000 MNT",
                 course4_btn: "Learn More",
                 
                 course5_title: "Support in Japan",
@@ -1855,6 +1959,10 @@
                 review1_caption: "Excellent teacher!",
                 review2_caption: "Best Japanese lessons!",
                 review3_caption: "Highly recommended!",
+
+                video_title: "Featured Video",
+                // video_subtitle: "My Japanese Learning Journey",
+                course_unavailable: "Unavailable until 12/2025",
             },
             
             mn: {
@@ -1897,20 +2005,32 @@
                 course2_feature4: "Боломжийн үнэ",
                 course2_btn: "Бүртгүүлэх",
                 
+                // course3_title: "Mock шалгалтын хичээл",
+                // course3_desc: "JLPT өмнөх жилүүдийн материал дээр хамтдаа ажиллаж, шалгалт өгөх техникд суралцаарай.",
+                // course3_feature1: "Бүх түвшин N5-N2",
+                // course3_feature2: "Бүх чадвараа сайжруулах боломж",
+                // course3_feature3: "Шалгалтын стратеги",
+                // course3_feature4: "Цаг удирдах зөвлөмж",
                 course3_title: "Mock шалгалтын хичээл",
-                course3_desc: "JLPT өмнөх жилүүдийн материал дээр хамтдаа ажиллаж, шалгалт өгөх техникд суралцаарай.",
-                course3_feature1: "Бүх түвшин N5-N2",
-                course3_feature2: "Бүх чадвараа сайжруулах боломж",
-                course3_feature3: "Шалгалтын стратеги",
-                course3_feature4: "Цаг удирдах зөвлөмж",
+                course3_desc: "JLPT шалгалтын дадлага, шууд хичээл болон дэлгэрэнгүй тайлбар.",
+                course3_feature1: "2025.11.03 – 12.05 | Долоо хоногт 2 удаа (1ц 30м)",
+                course3_feature2: "N5 / N4 / N3 / N2 | Google Meet дээр шууд",
+                course3_feature3: "Унших, үгийн сан, дүрэм & mock шалгалт",
+                course3_feature4: "Төлбөр: 120,000₮",
                 course3_btn: "Бүртгүүлэх",
                 
-                course4_title: "Ханзны хичээл",
-                course4_desc: "Системтэй зөв аргаар Ханзыг эзэмшиж, санах техникүүдийг ашигла.",
-                course4_feature1: "Зөв бүтэцтэй хөтөлбөр",
-                course4_feature2: "Ханзны сууриа зөв тавих",
-                course4_feature3: "Бичих дадлага",
-                course4_feature4: "Унших дасгал",
+                // course4_title: "Ханзны хичээл",
+                // course4_desc: "Системтэй зөв аргаар Ханзыг эзэмшиж, санах техникүүдийг ашигла.",
+                // course4_feature1: "Зөв бүтэцтэй хөтөлбөр",
+                // course4_feature2: "Ханзны сууриа зөв тавих",
+                // course4_feature3: "Бичих дадлага",
+                // course4_feature4: "Унших дасгал",
+                course4_title: "Ханзны өглөөний хичээл",
+                course4_desc: "220 ханз (N5 + N4-ийн тал) тодорхой тайлбар, жишээтэй сурах.",
+                course4_feature1: "2025.11.03 – 12.03 | Мя–Ба өглөө",
+                course4_feature2: "05:00 МНГ / 06:00 Япон | 1ц/хичээл",
+                course4_feature3: "Google Meet, бичлэг байнга",
+                course4_feature4: "Төлбөр: 70,000₮",
                 course4_btn: "Бүртгүүлэх",
                 
                 course5_title: "Японд байгаа монголчуудад",
@@ -2002,6 +2122,10 @@
                 review1_caption: "Маш сайн багш!",
                 review2_caption: "Хамгийн сайн Япон хэлний хичээл!",
                 review3_caption: "Их санал болгож байна!",
+
+                video_title: "Онцлох Видео",
+                // video_subtitle: "Миний Япон хэл сурах аялал",
+                course_unavailable: "2025.12 хүртэл боломжгүй",
             },
             
             jp: {
@@ -2044,20 +2168,32 @@
                 course2_feature4: "手頃な価格",
                 course2_btn: "グループに参加",
                 
+                // course3_title: "模擬試験クラス",
+                // course3_desc: "本物のJLPTスタイルのテストで練習し、詳細なフィードバックを得て、試験の自信を高めましょう。",
+                // course3_feature1: "全レベルN5-N2",
+                // course3_feature2: "詳細なフィードバック",
+                // course3_feature3: "試験戦略",
+                // course3_feature4: "時間管理のヒント",
                 course3_title: "模擬試験クラス",
-                course3_desc: "本物のJLPTスタイルのテストで練習し、詳細なフィードバックを得て、試験の自信を高めましょう。",
-                course3_feature1: "全レベルN5-N2",
-                course3_feature2: "詳細なフィードバック",
-                course3_feature3: "試験戦略",
-                course3_feature4: "時間管理のヒント",
+                course3_desc: "JLPTスタイルのテストをライブセッションと詳細フィードバックで練習。",
+                course3_feature1: "2025年11月3日〜12月5日 | 週2回（各90分）",
+                course3_feature2: "N5 / N4 / N3 / N2 | Google Meetライブ",
+                course3_feature3: "読解、語彙、文法、模擬試験",
+                course3_feature4: "料金：120,000トゥグルグ",
                 course3_btn: "詳しく見る",
                 
-                course4_title: "漢字クラス",
-                course4_desc: "体系的な学習方法と記憶テクニックで日本語の文字をマスターしましょう。",
-                course4_feature1: "構造化されたカリキュラム",
-                course4_feature2: "記憶テクニック",
-                course4_feature3: "書く練習",
-                course4_feature4: "読解演習",
+                // course4_title: "漢字クラス",
+                // course4_desc: "体系的な学習方法と記憶テクニックで日本語の文字をマスターしましょう。",
+                // course4_feature1: "構造化されたカリキュラム",
+                // course4_feature2: "記憶テクニック",
+                // course4_feature3: "書く練習",
+                // course4_feature4: "読解演習",
+                course4_title: "漢字基礎モーニングクラス",
+                course4_desc: "220の漢字（N5全部 + N4の半分）を明確な説明と例で学ぶ。",
+                course4_feature1: "2025年11月3日〜12月3日 | 火〜金 朝",
+                course4_feature2: "05:00モンゴル / 06:00日本 | 1時間/回",
+                course4_feature3: "Google Meet、録画あり",
+                course4_feature4: "料金：70,000トゥグルグ",
                 course4_btn: "詳しく見る",
                 
                 course5_title: "日本でのサポート",
@@ -2147,6 +2283,11 @@
                 review1_caption: "素晴らしい先生です！",
                 review2_caption: "最高の日本語レッスン！",
                 review3_caption: "強くお勧めします！",
+
+                // Add to jp:
+                video_title: "注目動画",
+                // video_subtitle: "私の日本語学習の旅",
+                course_unavailable: "2025年12月まで利用不可",
             }
         };
 
@@ -2457,3 +2598,4 @@
 </body>
 
 </html>
+
